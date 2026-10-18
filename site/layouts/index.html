@@ -1,8 +1,281 @@
 {{ define "main" }}
-  <section class="hero">
-    <p class="prompt mono">jason@netstate:~$ ./whoami.sh</p>
-    <h1>{{ .Site.Params.owner }}</h1>
-    <p class="tagline">{{ .Site.Params.tagline }}</p>
-    {{ .Content }}
+<div id="view-home">
+<div class="wrap">
+
+  <!-- HERO -->
+  <section class="hero" style="border-top:none;">
+    <div class="term" role="img" aria-label="Terminal running whoami.sh: jason.mcginn, IT Coordinator and Systems/Infrastructure Admin; 20+ years cable to cloud; secure, documented, built for the people who use it; stack Azure, Windows Server, Linux, Cisco, VMware, Hyper-V, Docker, SQL Server, PowerShell, Python, Bash; certs Azure Fundamentals (AZ-900), Dynamics 365 Finance and Operations Fundamentals, CompTIA A+ and NB Instructional Certification; status available for work.">
+      <div class="term-bar">
+        <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
+        <a class="term-title mono term-title-link" href="/docs/buildlog/">// how this site is built</a>
+      </div>
+      <div class="term-body mono" id="termBody" aria-hidden="true"></div>
+    </div>
+    <div class="cta">
+      <a class="btn primary btn-lg" href="/resume.pdf" download="Jason-McGinn-Resume.pdf">download resume</a>
+      <a class="btn btn-lg" href="/#why">explore my work</a>
+    </div>
+    <div class="cta-sub">
+      <span class="cta-sub-label">Contact Me</span>
+      <div class="cta-sub-links">
+        <a class="btn btn-green" href="/#contact">email</a>
+        <a class="btn btn-green" href="https://www.linkedin.com/in/jason-mcginn-bb350711" target="_blank" rel="noopener">linkedin</a>
+        <a class="btn btn-green" href="https://github.com/jasonmcginn" target="_blank" rel="noopener">github</a>
+      </div>
+    </div>
   </section>
+
+  <!-- PAGE INDEX (compact map) -->
+  <section id="index">
+    <p class="sec-label">// on this page</p>
+    <div class="index-grid">
+      <a class="idx" href="/#why"><span class="idx-head"><span class="idx-n">01</span><span class="idx-t">how I work</span></span><span class="idx-d">three principles behind the work</span></a>
+      <a class="idx" href="/#work"><span class="idx-head"><span class="idx-n">02</span><span class="idx-t">featured stories</span></span><span class="idx-d">real incidents, start to finish</span></a>
+      <a class="idx" href="/#layers"><span class="idx-head"><span class="idx-n">03</span><span class="idx-t">experience by layer</span></span><span class="idx-d">every OSI layer, cable to cloud</span></a>
+      <a class="idx" href="/#skills"><span class="idx-head"><span class="idx-n">04</span><span class="idx-t">certifications and skills</span></span><span class="idx-d">held, plus the tools I use</span></a>
+      <a class="idx" href="/#beyond"><span class="idx-head"><span class="idx-n">05</span><span class="idx-t">beyond the keyboard</span></span><span class="idx-d">who I am off the clock</span></a>
+      <a class="idx" href="/#contact"><span class="idx-head"><span class="idx-n">06</span><span class="idx-t">contact</span></span><span class="idx-d">how to reach me</span></a>
+    </div>
+  </section>
+
+  <!-- WHY ME -->
+  <section id="why">
+    <p class="sec-label">// 01 how I work</p>
+    <h2 class="sec-h" style="font-size:clamp(1.1rem,2.2vw,1.3rem);">One approach, applied to very different problems.</h2>
+    <p class="sec-sub" style="max-width:none;">Twenty-plus years across networking, systems, cloud and automation. Three principles run through all of it: I build secure by default, work methodically from diagnosis to verification, and go deep enough to know a system cold.</p>
+    <div class="why">
+      <a class="card" href="/stories/sage/">
+        <p class="where mono">security by default</p>
+        <h3>Systems that work without being exposed.</h3>
+        <p>An app demanded local admin; the students couldn't have it. I monitored exactly what it needed and granted only that by Group Policy, nothing more exposed than it had to be.</p>
+        <span class="go mono">full story →</span>
+      </a>
+      <a class="card" href="/docs/kindergarten/">
+        <p class="where mono">methodical delivery</p>
+        <h3>Diagnose, document, propose, verify.</h3>
+        <p>A teacher logging a class of twenty-one five-year-olds in by hand, every session. I worked it end to end and wrote it up: policy first, then identity, devices, and the people, a proposal they could act on.</p>
+        <span class="go mono">full story →</span>
+      </a>
+      <a class="card" href="/stories/rack-rebuilds/">
+        <p class="where mono">depth over guesswork</p>
+        <h3>Neglected systems, made trustworthy.</h3>
+        <p>A switching loop took the network down for four hours. I found it cable by cable, then rebuilt and documented it so any fault traces from the wall jack to the switch port. Untangling it is how I came to know it cold.</p>
+        <span class="go mono">full story →</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- FEATURED WORK -->
+  <section id="work">
+    <p class="sec-label">// 02 featured stories</p>
+    <h2 class="sec-h">Three times I found a way.</h2>
+    <p class="sec-sub">A few of the stories behind the layers.</p>
+    <div class="feat">
+      <a class="card" href="/stories/ransomware/">
+        <p class="where mono">Operations &amp; Resilience</p>
+        <h3>Ransomware, first thing in the morning.</h3>
+        <p>A newly onboarded client, a call at 8 a.m. that the files were encrypted. Contained, traced, recovered from the night-before backup - then I closed the holes that let it in.</p>
+        <span class="go mono">read the story →</span>
+      </a>
+      <a class="card" href="/stories/server-refresh/">
+        <p class="where mono">Platforms</p>
+        <h3>Zero-downtime server refresh.</h3>
+        <p>New ESXi host, RAID 10, fresh VMs, domain-controller cutover by promote/demote - backups test-restored before anything old was retired.</p>
+        <span class="go mono">read the story →</span>
+      </a>
+      <a class="card" href="/stories/sage/">
+        <p class="where mono">Identity &amp; Policy</p>
+        <h3>Sage without admin rights.</h3>
+        <p>An app that demanded local admin, students who couldn't have it. I monitored exactly what it needed and granted only that by Group Policy.</p>
+        <span class="go mono">read the story →</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- LAYER MAP -->
+  <section id="layers">
+    <p class="sec-label">// 03 experience by layer</p>
+    <h2 class="sec-h">From the cable to the cloud, and every layer between.</h2>
+    <p class="sec-sub" style="max-width:none;">My experience mapped to the OSI model, plus the domains that cut across it. Open any layer to see the proof behind it: the stories, scripts, documents and containers tied to that part of the stack.</p>
+    <div class="layers-bar"><button class="layers-toggle" id="layersToggle" type="button" aria-expanded="false">expand all</button></div>
+    <div class="layers">
+      <div class="layers-col">
+        <details class="layer">
+          <summary><span class="ly mono">L1</span><span class="nm">Physical</span><span class="ds">- cabling, servers, power, printers, ESP32</span><span class="exp mono">▸</span></summary>
+          <div class="layer-toc">
+            <div class="toc-row"><span class="toc-cat cat-stories">stories</span><a href="/stories/xerox-teardown/">A full teardown to swap one part</a></div>
+            <div class="toc-row"><span class="toc-cat cat-stories">stories</span><a href="/stories/rack-rebuilds/">Four hours down, one bad cable</a></div>
+            <div class="toc-row"><span class="toc-cat cat-scripts">scripts</span><span class="toc-soon">ESP32 build code <span class="soon">planned</span></span></div>
+            <div class="toc-row"><span class="toc-cat cat-documents">documents</span><span class="toc-soon">Network documentation sample <span class="soon">planned</span></span></div>
+            <div class="toc-row"><span class="toc-cat cat-documents">documents</span><span class="toc-soon">Wireless coverage / site survey <span class="soon">planned</span></span></div>
+          </div>
+        </details>
+        <details class="layer">
+          <summary><span class="ly mono">L2</span><span class="nm">Data Link</span><span class="ds">- switching, VLANs, STP, Wi-Fi</span><span class="exp mono">▸</span></summary>
+          <div class="layer-toc">
+            <div class="toc-row"><span class="toc-cat cat-stories">stories</span><a href="/stories/wireless-bridge/">Getting signal into a metal building</a></div>
+            <div class="toc-row"><span class="toc-cat cat-stories">stories</span><a href="/stories/wep/">Proving WEP wasn't protecting us</a></div>
+          </div>
+        </details>
+        <details class="layer">
+          <summary><span class="ly mono">L3</span><span class="nm">Network</span><span class="ds">- routing, firewalls, VPN, Azure VNets</span><span class="exp mono">▸</span></summary>
+          <div class="layer-toc">
+            <div class="toc-row"><span class="toc-cat cat-stories">stories</span><a href="/stories/voip/">Dropped calls, found in the firewall logs</a></div>
+            <div class="toc-row"><span class="toc-cat cat-stories">stories</span><a href="/stories/xerox-network/">Working with the site's IT, not passing the puck</a></div>
+            <div class="toc-row"><span class="toc-cat cat-scripts">scripts</span><span class="toc-soon">ARM template sample <span class="soon">planned</span></span></div>
+          </div>
+        </details>
+        <details class="layer">
+          <summary><span class="ly mono">L4</span><span class="nm">Transport</span><span class="ds">- TCP/UDP, QoS, port knocking</span><span class="exp mono">▸</span></summary>
+          <div class="layer-toc">
+            <div class="toc-row"><span class="toc-cat cat-stories">stories</span><a href="/stories/qos/">Keeping the streaming, fixing the network</a></div>
+            <div class="toc-row"><span class="toc-cat cat-stories">stories</span><a href="/stories/iss-labs/">Teaching networking by building it</a></div>
+            <div class="toc-row"><span class="toc-cat cat-scripts">scripts</span><span class="toc-soon">Port-knocking firewall <span class="soon">planned</span></span></div>
+          </div>
+        </details>
+        <details class="layer">
+          <summary><span class="ly mono">L5-6</span><span class="nm">Session / Presentation</span><span class="ds">- TLS, certs, encryption</span><span class="exp mono">▸</span></summary>
+          <div class="layer-toc">
+            <div class="toc-row"><span class="toc-cat cat-stories">stories</span><a href="/stories/vpn-montreal/">A site-to-site VPN, tested offline before it went live</a></div>
+            <div class="toc-row"><span class="toc-cat cat-stories">stories</span><a href="/stories/cert-expiry/">When an expired certificate took the VPN down</a></div>
+          </div>
+        </details>
+        <details class="layer">
+          <summary><span class="ly mono">L7</span><span class="nm">Application</span><span class="ds">- DNS, email, web, SQL, ERP</span><span class="exp mono">▸</span></summary>
+          <div class="layer-toc">
+            <div class="toc-row"><span class="toc-cat cat-documents">documents</span><span class="toc-soon">ERP companion database write-up <span class="soon">planned</span></span></div>
+            <div class="toc-row"><span class="toc-cat cat-documents">documents</span><span class="toc-soon">Medical database reporting write-up <span class="soon">planned</span></span></div>
+          </div>
+        </details>
+      </div>
+      <div class="layers-col">
+        <details class="layer">
+          <summary><span class="ly mono">L8</span><span class="nm">People</span><span class="ds">- teaching, documentation, the go-to</span><span class="exp mono">▸</span></summary>
+          <div class="layer-toc">
+            <div class="toc-row"><span class="toc-cat cat-stories">stories</span><a href="/stories/reporting/">In-house reporting instead of $300-an-hour consulting</a></div>
+            <div class="toc-row"><span class="toc-cat cat-stories">stories</span><a href="/stories/xp-escalation/">The escalation point for Windows XP</a></div>
+            <div class="toc-row"><span class="toc-cat cat-documents">documents</span><span class="toc-soon">Config documentation guide <span class="soon">planned</span></span></div>
+          </div>
+        </details>
+        <details class="layer">
+          <summary><span class="ly mono">+</span><span class="nm">Identity &amp; Policy</span><span class="ds">- AD, GPO, Entra, Conditional Access</span><span class="exp mono">▸</span></summary>
+          <div class="layer-toc">
+            <div class="toc-row"><span class="toc-cat cat-stories">stories</span><a href="/stories/azure-foundations/">Azure foundations for Dynamics 365 migrations</a></div>
+            <div class="toc-row"><span class="toc-cat cat-stories">stories</span><a href="/stories/sage/">Running Sage without handing out admin</a></div>
+            <div class="toc-row"><span class="toc-cat cat-documents">documents</span><a href="/docs/kindergarten/">Simplifying kindergarten logins</a></div>
+          </div>
+        </details>
+        <details class="layer">
+          <summary><span class="ly mono">+</span><span class="nm">Platforms</span><span class="ds">- VMware, Hyper-V, Citrix, containers</span><span class="exp mono">▸</span></summary>
+          <div class="layer-toc">
+            <div class="toc-row"><span class="toc-cat cat-stories">stories</span><a href="/stories/server-refresh/">A zero-downtime server refresh</a></div>
+          </div>
+        </details>
+        <details class="layer">
+          <summary><span class="ly mono">+</span><span class="nm">Automation &amp; AI</span><span class="ds">- PowerShell, ARM, local LLMs</span><span class="exp mono">▸</span></summary>
+          <div class="layer-toc">
+            <div class="toc-row"><span class="toc-cat cat-stories">stories</span><a href="/stories/provisioning/">Automating student account provisioning</a></div>
+            <div class="toc-row"><span class="toc-cat cat-stories">stories</span><a href="/stories/config-docs/">Turning config tracking into handover documentation</a></div>
+            <div class="toc-row"><span class="toc-cat cat-scripts">scripts</span><span class="toc-soon">Account provisioning sample <span class="soon">planned</span></span></div>
+            <div class="toc-row"><span class="toc-cat cat-scripts">scripts</span><a href="https://github.com/jasonmcginn/ps-claude-api-toolkit" target="_blank" rel="noopener">ps-claude-api-toolkit</a></div>
+            <div class="toc-row"><span class="toc-cat cat-documents">documents</span><span class="toc-soon">Domain, Azure &amp; email setup <span class="soon">planned</span></span></div>
+            <div class="toc-row"><span class="toc-cat cat-containers">containers</span><a href="/docs/buildlog/">This site itself (Hugo + Azure)</a></div>
+          </div>
+        </details>
+        <details class="layer">
+          <summary><span class="ly mono">+</span><span class="nm">Operations &amp; Resilience</span><span class="ds">- backup, recovery, incident response</span><span class="exp mono">▸</span></summary>
+          <div class="layer-toc">
+            <div class="toc-row"><span class="toc-cat cat-stories">stories</span><a href="/stories/ransomware/">Ransomware, first thing in the morning</a></div>
+            <div class="toc-row"><span class="toc-cat cat-documents">documents</span><span class="toc-soon">Backup &amp; recovery plan <span class="soon">planned</span></span></div>
+            <div class="toc-row"><span class="toc-cat cat-documents">documents</span><span class="toc-soon">Incident response write-up <span class="soon">planned</span></span></div>
+          </div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS + CERTS -->
+  <section id="skills">
+    <p class="sec-label">// 04 certifications and skills</p>
+    <div class="skill-group">
+      <ul class="certlist">
+        <li><span>Microsoft Azure Fundamentals (AZ-900)</span><span class="yr mono">2023</span></li>
+        <li><span>Dynamics 365 F&amp;O Fundamentals</span><span class="yr mono">2022</span></li>
+        <li><span>CompTIA A+</span><span class="yr mono">2010</span></li>
+        <li><span>Information Systems Specialist Diploma</span><span class="yr mono">2001-02</span></li>
+      </ul>
+    </div>
+
+    <div class="next mono" style="margin-top:22px; line-height:2.4;">
+      <span class="chip prod" style="pointer-events:none;">teal</span> = production experience<br>
+      <span class="chip" style="pointer-events:none;">grey</span> = learning or lighter use
+    </div>
+    <div class="skill-group">
+      <h4>Cloud &amp; Identity</h4>
+      <div class="chips">
+        <span class="chip prod">Azure (VNets, NSGs, IAM)</span><span class="chip prod">Entra ID</span>
+        <span class="chip prod">Conditional Access</span><span class="chip prod">AD &amp; Group Policy</span>
+        <span class="chip prod">M365 / Exchange Online</span><span class="chip prod">Azure Data (Lake, SQL, Blob)</span>
+        <span class="chip">Intune</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <h4>Network &amp; Security</h4>
+      <div class="chips">
+        <span class="chip prod">Routing / switching / VLANs</span><span class="chip prod">Firewalls (WatchGuard, pfSense, iptables)</span>
+        <span class="chip prod">VPN · IPsec</span><span class="chip prod">DNS · DHCP</span>
+        <span class="chip prod">TLS / certificates</span><span class="chip prod">Monitoring (SNMP, SolarWinds, Snort)</span>
+        <span class="chip prod">Linux hardening (SELinux, Fail2Ban)</span><span class="chip prod">Incident response</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <h4>Platforms &amp; Virtualization</h4>
+      <div class="chips">
+        <span class="chip prod">VMware / ESXi</span><span class="chip prod">Hyper-V</span>
+        <span class="chip prod">Citrix</span><span class="chip prod">Windows Server · Linux</span>
+        <span class="chip prod">Backup &amp; DR (Veeam)</span><span class="chip">Docker · Kubernetes</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <h4>Data &amp; Reporting</h4>
+      <div class="chips">
+        <span class="chip prod">SQL Server / T-SQL</span><span class="chip prod">ERP (Syspro, D365)</span>
+        <span class="chip prod">Reporting (PHP, Crystal Reports)</span><span class="chip prod">VBA / Excel</span>
+        <span class="chip">Power BI</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <h4>Automation &amp; AI</h4>
+      <div class="chips">
+        <span class="chip prod">PowerShell</span><span class="chip prod">Bash</span><span class="chip prod">Python</span>
+        <span class="chip prod">Azure CLI</span><span class="chip prod">ARM</span><span class="chip prod">Git / GitHub Actions / CI-CD</span>
+        <span class="chip">Ollama · n8n · local LLMs</span><span class="chip">Claude API toolkit</span><span class="chip">ESP32 / C++</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- BEYOND -->
+  <section id="beyond" class="beyond">
+    <p class="sec-label">// 05 beyond the keyboard</p>
+    <h2 class="sec-h" style="font-size:clamp(1.1rem,2.2vw,1.3rem);">A maker, on and off the clock.</h2>
+    <p>I'm a maker at heart. I like building things that have a real use and purpose, with a design that is both elegant and functional. When I'm away from the keyboard I'm usually in the woods, or out in the shop making something with my hands.</p>
+    <p>A lot of that happens at the CNC, where I enjoy the design side as much as the carving. I designed my own cribbage board and have sold dozens of them. I also turn and carve bowls, pens, and plenty of other woodworking projects, tons of them over the years. And I love dogs.</p>
+    <p class="q">It's the same instinct that shapes how I build systems. I want what I make to last, and to actually get used.</p>
+    <p style="margin-top:18px;"><a class="btn" href="/woodwork/">see some of my work</a></p>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <p class="sec-label">// 06 contact</p>
+    <div class="term" role="img" aria-label="Terminal running contact.sh: open to IT Coordinator and Systems/Infrastructure roles in the Moncton area or remote; email mcginn@netstatedata.ca; linkedin.com/in/jason-mcginn; github.com/jasonmcginn; download resume.">
+      <div class="term-bar">
+        <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
+        <span class="term-title mono" style="font-weight:700; font-size:1.02rem; color:var(--term-ink);">// reach me</span>
+      </div>
+      <div class="term-body mono" id="contactTermBody" aria-hidden="true"></div>
+    </div>
+  </section>
+
+</div>
+</div>
 {{ end }}
