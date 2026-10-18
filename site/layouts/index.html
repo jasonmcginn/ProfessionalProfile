@@ -1,0 +1,8 @@
+{{ define "main" }}
+  <section class="hero">
+    <p class="prompt mono">jason@netstate:~$ ./whoami.sh</p>
+    <h1>{{ .Site.Params.owner }}</h1>
+    <p class="tagline">{{ .Site.Params.tagline }}</p>
+    {{ .Content }}
+  </section>
+{{ end }}

@@ -1,0 +1,15 @@
+baseURL = "https://www.netstatedata.ca/"
+languageCode = "en-ca"
+title = "NetState Data"
+enableRobotsTXT = true
+
+[params]
+  owner = "Jason R. McGinn"
+  tagline = "From the cable to the cloud, and every layer between."
+  description = "The professional profile of Jason R. McGinn: networking, systems, cloud, and automation, shown layer by layer."
+
+[markup.goldmark.renderer]
+  unsafe = true
+
+[taxonomies]
+  layer = "layers"

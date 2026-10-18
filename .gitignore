@@ -1,0 +1,14 @@
+# Hugo
+/site/public/
+/site/resources/_gen/
+/site/.hugo_build.lock
+
+# OS / editors
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/
+
+# Node (if tooling is added later)
+node_modules/
