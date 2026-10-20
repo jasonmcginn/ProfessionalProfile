@@ -12,3 +12,6 @@ desktop.ini
 
 # Node (if tooling is added later)
 node_modules/
+
+# Local backups (restore points, not for the repo)
+/_backups/
