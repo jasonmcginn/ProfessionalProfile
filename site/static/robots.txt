@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# ops note: keep the staging vault out of the index
+Disallow: /sv-4a91/

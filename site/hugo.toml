@@ -13,3 +13,4 @@ enableRobotsTXT = true
 
 [taxonomies]
   layer = "layers"
+  topic = "topics"

@@ -1,0 +1,15 @@
+{{ define "main" }}
+<div class="storyview"><div class="wrap story">
+  <a class="backlink mono" href="/">&#8592; back</a>
+  {{ partial "typeline.html" . }}
+  <h1>{{ .Title }}</h1>
+  {{ with .Params.hook }}<p class="hook">{{ . | safeHTML }}</p>{{ end }}
+  <div class="story-body">
+    {{ .Content }}
+    {{ if .Params.language }}<div class="meta-row"><span><b>Language:</b> {{ .Params.language }}</span></div>{{ end }}
+    {{ with .Params.run }}<p class="cmd-label">run</p><div class="cmd"><span class="cp" role="button">copy</span>{{ . }}</div>{{ end }}
+    {{ if .Params.repo }}<div class="actions"><a class="btn primary" href="{{ .Params.repo }}" target="_blank" rel="noopener">view code on GitHub &#8594;</a></div>{{ end }}
+  </div>
+  {{ partial "resources.html" . }}
+</div></div>
+{{ end }}

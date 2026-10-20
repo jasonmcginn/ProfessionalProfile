@@ -1,0 +1,55 @@
+- key: "L1"
+  name: "Physical"
+  desc: "- cabling, servers, power, printers, ESP32"
+  badge: "L1"
+  col: 1
+- key: "L2"
+  name: "Data Link"
+  desc: "- switching, VLANs, STP, Wi-Fi"
+  badge: "L2"
+  col: 1
+- key: "L3"
+  name: "Network"
+  desc: "- routing, firewalls, VPN, Azure VNets"
+  badge: "L3"
+  col: 1
+- key: "L4"
+  name: "Transport"
+  desc: "- TCP/UDP, QoS, port knocking"
+  badge: "L4"
+  col: 1
+- key: "L5-6"
+  name: "Session / Presentation"
+  desc: "- TLS, certs, encryption"
+  badge: "L5-6"
+  col: 1
+- key: "L7"
+  name: "Application"
+  desc: "- DNS, email, web, SQL, ERP"
+  badge: "L7"
+  col: 1
+- key: "L8"
+  name: "People"
+  desc: "- teaching, documentation, the go-to"
+  badge: "L8"
+  col: 2
+- key: "X1"
+  name: "Identity & Policy"
+  desc: "- AD, GPO, Entra, Conditional Access"
+  badge: "+"
+  col: 2
+- key: "X2"
+  name: "Platforms"
+  desc: "- VMware, Hyper-V, Citrix, containers"
+  badge: "+"
+  col: 2
+- key: "X3"
+  name: "Automation & AI"
+  desc: "- PowerShell, ARM, local LLMs"
+  badge: "+"
+  col: 2
+- key: "X4"
+  name: "Operations & Resilience"
+  desc: "- backup, recovery, incident response"
+  badge: "+"
+  col: 2

@@ -1,0 +1,37 @@
+{{ define "main" }}
+{{ if eq .Kind "term" }}
+  {{ $name := .Title }}{{ $desc := "" }}
+  {{ range where site.Data.layers "key" .Title }}{{ $name = .name }}{{ $desc = .desc }}{{ end }}
+  <div class="storyview"><div class="wrap story">
+    <a class="backlink mono" href="/library/">&#8592; back</a>
+    <p class="story-where mono">// tag</p>
+    <h1>{{ $name | safeHTML }}</h1>
+    <p class="hook">Everything tagged {{ $name | safeHTML }}{{ with $desc }} <span class="mono tag-desc">{{ . }}</span>{{ end }}.</p>
+    <div class="story-body"><div class="lib-list">
+    {{ range .Pages.ByTitle }}
+      <div class="lib-row">
+        <span class="toc-cat cat-{{ .Section }}">{{ .Section }}</span>
+        {{ if eq .Params.status "planned" }}<span class="toc-soon">{{ .Title }} <span class="soon">planned</span></span>
+        {{ else }}<a href="{{ .RelPermalink }}">{{ .Title }}</a>{{ end }}
+        {{ with .Params.summary }}<span class="lib-sum">{{ . }}</span>{{ end }}
+      </div>
+    {{ else }}
+      <div class="lib-row"><span class="lib-sum">Nothing tagged here yet.</span></div>
+    {{ end }}
+    </div></div>
+  </div></div>
+{{ else }}
+  <div class="storyview"><div class="wrap story">
+    <a class="backlink mono" href="/library/">&#8592; back</a>
+    <p class="story-where mono">// tags</p>
+    <h1>{{ .Title | title }}</h1>
+    <div class="story-body"><div class="lib-list">
+    {{ range .Pages.ByTitle }}
+      {{ $name := .Title }}
+      {{ range where site.Data.layers "key" .Title }}{{ $name = .name }}{{ end }}
+      <div class="lib-row"><a href="{{ .RelPermalink }}">{{ $name | safeHTML }}</a><span class="lib-sum">{{ len .Pages }} item{{ if ne (len .Pages) 1 }}s{{ end }}</span></div>
+    {{ end }}
+    </div></div>
+  </div></div>
+{{ end }}
+{{ end }}

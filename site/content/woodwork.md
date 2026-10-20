@@ -3,7 +3,7 @@ title: "Some of my work"
 ---
 
 <div class="wrap story">
-    <a class="backlink mono" href="/">← back to home</a>
+    <a class="backlink mono" href="/">← back</a>
     <p class="story-where mono">// beyond the keyboard · the shop</p>
     <h1>Some of my work</h1>
     <p class="hook">CNC design, the cribbage board I designed and sold, turned bowls and pens, and more.</p>

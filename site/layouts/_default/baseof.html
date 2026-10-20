@@ -4,11 +4,14 @@
   {{ partial "head.html" . }}
 </head>
 <body>
+{{ partial "winchrome.html" . }}
 {{ partial "header.html" . }}
 <main id="top">
 {{ block "main" . }}{{ end }}
 </main>
 {{ partial "footer.html" . }}
+{{ partial "taskbar.html" . }}
+{{ partial "floater.html" . }}
 <script src="{{ "js/app.js" | relURL }}" defer></script>
 </body>
 </html>

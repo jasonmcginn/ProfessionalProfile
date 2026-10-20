@@ -1,0 +1,18 @@
+{{ $self := . }}
+{{ $rel := slice }}
+{{ with .Params.topics }}
+  {{ $rel = where (where (where site.RegularPages "Params.topics" "intersect" $self.Params.topics) "Params.status" "live") "Permalink" "!=" $self.Permalink }}
+{{ end }}
+<div class="digdeeper">
+{{ if or .Params.pdf .Params.links $rel }}
+  <h3>// dig deeper</h3>
+  <div class="dd-links">
+    {{ with .Params.pdf }}<a class="dd mono" href="{{ . | relURL }}" download><span class="ic">&#9656;</span> Download the PDF</a>{{ end }}
+    {{ range .Params.links }}<a class="dd mono" href="{{ .url }}"{{ if hasPrefix .url "http" }} target="_blank" rel="noopener"{{ end }}><span class="ic">&#9656;</span> {{ .label }}</a>{{ end }}
+    {{ range $rel }}<a class="dd mono" href="{{ .RelPermalink }}"><span class="ic cat-{{ .Section }}">&#9656;</span> {{ .Title }}</a>{{ end }}
+  </div>
+{{ end }}
+{{ with .Params.layers }}
+  <div class="dd-layers">Related layers: {{ range . }}{{ $k := . }}{{ $name := $k }}{{ range where site.Data.layers "key" $k }}{{ $name = .name }}{{ end }}<a href="/layers/{{ $k | urlize }}/">{{ $name | safeHTML }}</a>{{ end }}</div>
+{{ end }}
+</div>

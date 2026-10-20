@@ -1,0 +1,37 @@
+{{ define "main" }}
+<div class="storyview"><div class="wrap story">
+  <a class="backlink mono" href="/">&#8592; back</a>
+  <p class="story-where mono">// library</p>
+  <h1>Library</h1>
+  <p class="hook">Everything on the site: the stories, documents, scripts, and containers behind the layers.</p>
+  <div class="doc-toc"><p class="toc-h">Jump to</p><ol>
+    <li><a href="#stories">Stories</a></li>
+    <li><a href="#documents">Documents</a></li>
+    <li><a href="#scripts">Scripts</a></li>
+    <li><a href="#containers">Containers</a></li>
+  </ol></div>
+  <div class="story-body">
+    <div class="layers-bar"><button class="layers-toggle" id="libToggle" type="button" aria-expanded="true">collapse all</button></div>
+    {{ range $sec := slice "stories" "documents" "scripts" "containers" }}
+    {{ $items := (where site.RegularPages "Section" $sec).ByTitle }}
+    <details id="{{ $sec }}" class="lib-group" open>
+      <summary><span class="lib-grp-name">{{ $sec | title }}</span><span class="lib-grp-n mono">{{ len $items }}</span><span class="exp mono">&#9656;</span></summary>
+      <div class="lib-list">
+      {{ range $items }}
+        <div class="lib-row">
+          <span class="toc-cat cat-{{ $sec }}">{{ $sec }}</span>
+          <div class="lib-main">
+            {{ if eq .Params.status "planned" }}<span class="lib-title toc-soon">{{ .Title }} <span class="soon">planned</span></span>
+            {{ else }}<a class="lib-title" href="{{ .RelPermalink }}">{{ .Title }}</a>{{ end }}
+            {{ with .Params.summary }}<span class="lib-sum">{{ . }}</span>{{ end }}
+          </div>
+        </div>
+      {{ else }}
+        <div class="lib-row"><div class="lib-main"><span class="lib-sum">None yet.</span></div></div>
+      {{ end }}
+      </div>
+    </details>
+    {{ end }}
+  </div>
+</div></div>
+{{ end }}

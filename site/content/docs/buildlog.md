@@ -3,7 +3,7 @@ title: "How this site is built"
 ---
 
 <div class="wrap story">
-<a class="backlink mono" href="/">→ back to home</a>
+<a class="backlink mono" href="/">← back</a>
 <p class="story-where mono">// how this site is built</p>
 <h1>How this site is built</h1>
 <p class="hook">This page is a profile, and also a working piece of infrastructure. Here is the toolchain behind it, the process that turns my notes into a live site, and how the domain itself is set up.</p>
@@ -54,6 +54,7 @@ title: "How this site is built"
 </table>
 <h2 id="workflow">The workflow</h2>
 <p>Everything moves one direction, from a note to a deployed page. I write in the vault, draft and build with Claude, review and correct, then Hugo generates the static site. I preview it locally, commit from my own machine, and GitHub Actions deploys it to Azure on push. Because the repository is public, the build itself is on display.</p>
+<p>The same repository also packages the site as <a href="/containers/sitebuild/">a container</a>. A multi-stage Dockerfile builds it with Hugo and serves the result from nginx, and a second GitHub Actions workflow publishes that image to the GitHub Container Registry on every push. Anyone can pull it and run this exact site with a single <code>docker run</code>, no build step required.</p>
 <svg class="diagram diagram-v" viewBox="0 0 340 390" role="img" aria-label="Workflow from writing a note to deploying a page">
 <defs><marker id="wf" markerWidth="9" markerHeight="9" refX="4" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="var(--ink-soft)"/></marker></defs>
 <rect x="20" y="8" width="300" height="40" rx="8" fill="var(--panel-2)" stroke="var(--accent)"/>

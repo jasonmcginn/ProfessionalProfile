@@ -1,0 +1,1 @@
+<p class="story-where mono">// {{ if ne .Section "stories" }}{{ singularize .Section }} &middot; {{ end }}{{ range $i, $k := .Params.layers }}{{ if $i }} &middot; {{ end }}{{ $name := $k }}{{ range where site.Data.layers "key" $k }}{{ $name = .name }}{{ end }}<a class="tag" href="/layers/{{ $k | urlize }}/">{{ $name | safeHTML }}</a>{{ end }}</p>

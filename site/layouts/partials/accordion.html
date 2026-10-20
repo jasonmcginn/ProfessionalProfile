@@ -1,0 +1,26 @@
+  <section id="layers">
+    <p class="sec-label">// 03 experience by layer</p>
+    <h2 class="sec-h">From the cable to the cloud, and every layer between.</h2>
+    <p class="sec-sub" style="max-width:none;">My experience mapped to the OSI model, plus the domains that cut across it. Open any layer to see the proof behind it.</p>
+    <div class="layers-bar"><button class="layers-toggle" id="layersToggle" type="button" aria-expanded="false">expand all</button></div>
+    <div class="layers">
+      {{ range $col := slice 1 2 }}
+      <div class="layers-col">
+        {{ range where site.Data.layers "col" $col }}
+          {{ $L := . }}
+          {{ $items := where (where site.RegularPages "Params.accordion" $L.key) "Params.status" "live" }}
+          <details class="layer">
+            <summary><span class="ly mono">{{ .badge }}</span><span class="nm">{{ .name | safeHTML }}</span><span class="ds">{{ .desc }}</span><span class="exp mono">&#9656;</span></summary>
+            <div class="layer-toc">
+              {{ range $items.ByTitle }}
+                <div class="toc-row"><span class="toc-cat cat-{{ .Section }}">{{ .Section }}</span><a href="{{ .RelPermalink }}">{{ .Title }}</a></div>
+              {{ else }}
+                <div class="toc-row"><span class="toc-soon">nothing featured here yet</span></div>
+              {{ end }}
+            </div>
+          </details>
+        {{ end }}
+      </div>
+      {{ end }}
+    </div>
+  </section>
