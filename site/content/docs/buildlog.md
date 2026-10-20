@@ -7,6 +7,7 @@ title: "How this site is built"
 <p class="story-where mono">// how this site is built</p>
 <h1>How this site is built</h1>
 <p class="hook">This page is a profile, and also a working piece of infrastructure. Here is the toolchain behind it, the process that turns my notes into a live site, and how the domain itself is set up.</p>
+<p class="mono series-nav">Part of <a href="/docs/project/">This site, as a project</a></p>
 <div class="doc-toc">
 <p class="toc-h">On this page</p>
 <ol>
