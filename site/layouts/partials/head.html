@@ -2,6 +2,26 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{{ if .IsHome }}{{ .Site.Title }} · {{ .Site.Params.owner }}{{ else }}{{ .Title }} · {{ .Site.Title }}{{ end }}</title>
 <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}">
+
+{{/* social share preview (Open Graph + Twitter Card) */}}
+{{ $sTitle := cond .IsHome (printf "%s · %s" .Site.Title .Site.Params.owner) (printf "%s · %s" .Title .Site.Title) }}
+{{ $sDesc := .Description }}
+{{ if not $sDesc }}{{ with .Params.summary }}{{ $sDesc = . }}{{ end }}{{ end }}
+{{ if not $sDesc }}{{ $sDesc = .Site.Params.description }}{{ end }}
+{{ $sImg := "og-default.png" }}{{ with .Params.image }}{{ $sImg = . }}{{ end }}
+{{ $sImgAbs := $sImg | absURL }}
+<meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}">
+<meta property="og:site_name" content="{{ .Site.Title }}">
+<meta property="og:title" content="{{ $sTitle }}">
+<meta property="og:description" content="{{ $sDesc }}">
+<meta property="og:url" content="{{ .Permalink }}">
+<meta property="og:image" content="{{ $sImgAbs }}">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{ $sTitle }}">
+<meta name="twitter:description" content="{{ $sDesc }}">
+<meta name="twitter:image" content="{{ $sImgAbs }}">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
