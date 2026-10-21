@@ -1,6 +1,6 @@
 ---
-title: "Config documentation guide"
-summary: "The configuration-tracking-to-handover documentation method I use on every project."
+title: "Auto-updating configuration documentation"
+summary: "Configuration documentation that updates itself from the source of truth, so every environment is documented to the same standard."
 layers: ["L8"]
 accordion: "L8"
 topics: []

@@ -1,0 +1,75 @@
+{{ define "main" }}
+{{ $slug := .File.ContentBaseName }}
+{{ $members := where site.RegularPages "Params.project" $slug }}
+<div class="storyview"><div class="wrap story">
+  <a class="backlink mono" href="/projects/">&#8592; projects</a>
+  <p class="story-where mono">// project{{ range .Params.layers }} &middot; {{ $k := . }}{{ $name := $k }}{{ range where site.Data.layers "key" $k }}{{ $name = .name }}{{ end }}<a class="tag" href="/layers/{{ $k | urlize }}/">{{ $name | safeHTML }}</a>{{ end }}{{ if eq .Params.status "planned" }} &middot; <span class="soon-inline">in progress</span>{{ end }}</p>
+  <h1>{{ .Title }}</h1>
+  {{ with .Params.hook }}<p class="hook">{{ . | safeHTML }}</p>{{ end }}
+  <div class="story-body">
+    {{ .Content }}
+
+    <h2>The pieces</h2>
+    <p class="proj-note">Every project follows the same pattern: diagnose, document and propose, build, verify. Each piece below is its own page in the library.</p>
+    {{ $steps := slice
+      (dict "sec" "stories"    "step" "1 &middot; diagnose")
+      (dict "sec" "documents"  "step" "2 &middot; document &amp; propose")
+      (dict "sec" "docs"       "step" "2 &middot; document &amp; propose")
+      (dict "sec" "containers" "step" "3 &middot; build")
+      (dict "sec" "scripts"    "step" "3 &middot; build: exercises") }}
+    <div class="proj-grid">
+    {{ range $steps }}
+      {{ $st := . }}
+      {{ range (where $members "Section" $st.sec).ByWeight }}
+      <a class="proj-card{{ if eq .Params.status "planned" }} is-planned{{ end }}" href="{{ .RelPermalink }}">
+        {{ $sec := cond (eq $st.sec "docs") "documents" $st.sec }}<span class="proj-step mono"><span class="cat-{{ $sec }}">{{ singularize $sec }}</span> &middot; {{ $st.step | safeHTML }}</span>
+        <span class="proj-card-h">{{ .Title }}{{ if eq .Params.status "planned" }} <span class="soon">planned</span>{{ end }}</span>
+        {{ with .Params.summary }}<span class="proj-card-b">{{ . }}</span>{{ end }}
+        <span class="proj-card-go mono">read &rarr;</span>
+      </a>
+      {{ end }}
+    {{ end }}
+    {{ range .Params.evidence }}
+      <div class="proj-card is-planned is-evidence">
+        <span class="proj-step mono"><span class="cat-evidence">evidence</span> &middot; 4 &middot; verify</span>
+        <span class="proj-card-h">{{ .title }}{{ if not .file }} <span class="soon">not captured yet</span>{{ end }}</span>
+        {{ with .desc }}<span class="proj-card-b">{{ . }}</span>{{ end }}
+        {{ with .file }}<a class="proj-card-go mono" href="{{ . | relURL }}"{{ if hasPrefix . "http" }} target="_blank" rel="noopener"{{ end }}>open &rarr;</a>{{ end }}
+      </div>
+    {{ end }}
+    </div>
+
+    {{ $uses := slice }}{{ range .Params.builds_on }}{{ with site.GetPage (printf "/projects/%s" .) }}{{ $uses = $uses | append . }}{{ end }}{{ end }}
+    {{ $usedby := where (where site.RegularPages "Section" "projects") "Params.builds_on" "intersect" (slice $slug) }}
+    {{ $related := slice }}{{ range .Params.related }}{{ with site.GetPage (printf "/projects/%s" .) }}{{ $related = $related | append . }}{{ end }}{{ end }}
+    {{ range where (where site.RegularPages "Section" "projects") "Params.related" "intersect" (slice $slug) }}{{ if not (in $related .) }}{{ $related = $related | append . }}{{ end }}{{ end }}
+    {{ if or $uses $usedby $related }}
+    <h2>How it connects</h2>
+    <p class="proj-note">The projects are built to work together. Each one is a component the others can stand on.</p>
+    <div class="proj-grid">
+      {{ range $uses }}<a class="proj-card{{ if eq .Params.status "planned" }} is-planned{{ end }}" href="{{ .RelPermalink }}"><span class="proj-step mono">builds on</span><span class="proj-card-h">{{ .Title }}</span>{{ with .Params.summary }}<span class="proj-card-b">{{ . }}</span>{{ end }}<span class="proj-card-go mono">open &rarr;</span></a>{{ end }}
+      {{ range $related }}<a class="proj-card{{ if eq .Params.status "planned" }} is-planned{{ end }}" href="{{ .RelPermalink }}"><span class="proj-step mono">related</span><span class="proj-card-h">{{ .Title }}</span>{{ with .Params.summary }}<span class="proj-card-b">{{ . }}</span>{{ end }}<span class="proj-card-go mono">open &rarr;</span></a>{{ end }}
+      {{ range $usedby }}<a class="proj-card{{ if eq .Params.status "planned" }} is-planned{{ end }}" href="{{ .RelPermalink }}"><span class="proj-step mono">used by</span><span class="proj-card-h">{{ .Title }}</span>{{ with .Params.summary }}<span class="proj-card-b">{{ . }}</span>{{ end }}<span class="proj-card-go mono">open &rarr;</span></a>{{ end }}
+    </div>
+    {{ end }}
+
+    {{ with .Params.phases }}
+    <h2>Phases</h2>
+    <table>
+      <thead><tr><th>Phase</th><th>Scope</th><th>Status</th></tr></thead>
+      <tbody>
+      {{ range . }}<tr><td class="mono">{{ .name }}</td><td>{{ .desc }}</td><td class="mono">{{ .status }}</td></tr>{{ end }}
+      </tbody>
+    </table>
+    {{ end }}
+
+    {{ with .Params.repo }}
+    <div class="actions">
+      {{ if eq $.Params.status "live" }}<a class="btn primary" href="{{ . }}" target="_blank" rel="noopener">view repo &#8594;</a>
+      {{ else }}<span class="btn is-disabled" aria-disabled="true">repo not published yet</span>{{ end }}
+    </div>
+    {{ end }}
+  </div>
+  {{ partial "resources.html" . }}
+</div></div>
+{{ end }}

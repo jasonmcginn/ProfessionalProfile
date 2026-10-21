@@ -1,0 +1,27 @@
+{{ define "main" }}
+<div class="storyview"><div class="wrap story">
+  <a class="backlink mono" href="/">&#8592; back</a>
+  <p class="story-where mono">// projects</p>
+  <h1>Projects</h1>
+  <p class="hook">Complete pieces of work. Each project ties the story, the documents, the code and a runnable lab into one concept, so you can follow it from the problem to the proof.</p>
+  <div class="story-body">
+    <div class="proj-grid">
+    {{ $all := .Pages }}
+    {{ range .Pages.ByWeight }}
+      {{ $slug := .File.ContentBaseName }}
+      {{ $usedby := where $all "Params.builds_on" "intersect" (slice $slug) }}
+      <a class="proj-card{{ if eq .Params.status "planned" }} is-planned{{ end }}" href="{{ .RelPermalink }}">
+        <span class="proj-card-h">{{ .Title }}{{ if eq .Params.status "planned" }} <span class="soon">in progress</span>{{ end }}</span>
+        {{ with .Params.summary }}<span class="proj-card-b">{{ . }}</span>{{ end }}
+        {{ if or .Params.builds_on $usedby .Params.related }}<span class="proj-links mono">
+          {{ with .Params.builds_on }}<span>builds on: {{ delimit . ", " }}</span>{{ end }}
+          {{ with $usedby }}<span>used by: {{ range $i, $p := . }}{{ if $i }}, {{ end }}{{ $p.File.ContentBaseName }}{{ end }}</span>{{ end }}
+          {{ with .Params.related }}<span>related: {{ delimit . ", " }}</span>{{ end }}
+        </span>{{ end }}
+        <span class="proj-card-go mono">open &rarr;</span>
+      </a>
+    {{ end }}
+    </div>
+  </div>
+</div></div>
+{{ end }}

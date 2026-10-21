@@ -3,8 +3,9 @@
   <a class="backlink mono" href="/">&#8592; back</a>
   <p class="story-where mono">// library</p>
   <h1>Library</h1>
-  <p class="hook">Everything on the site: the stories, documents, scripts, and containers behind the layers.</p>
+  <p class="hook">Everything on the site: the projects, and the stories, documents, scripts, and containers behind the layers.</p>
   <div class="doc-toc"><p class="toc-h">Jump to</p><ol>
+    <li><a href="#projects">Projects</a></li>
     <li><a href="#stories">Stories</a></li>
     <li><a href="#documents">Documents</a></li>
     <li><a href="#scripts">Scripts</a></li>
@@ -12,6 +13,22 @@
   </ol></div>
   <div class="story-body">
     <div class="layers-bar"><button class="layers-toggle" id="libToggle" type="button" aria-expanded="true">collapse all</button></div>
+    {{ $projects := (where site.RegularPages "Section" "projects").ByWeight }}
+    <details id="projects" class="lib-group" open>
+      <summary><span class="lib-grp-name">Projects</span><span class="lib-grp-n mono">{{ len $projects }}</span><span class="exp mono">&#9656;</span></summary>
+      <div class="lib-list">
+      {{ range $projects }}
+        <div class="lib-row">
+          <span class="toc-cat cat-projects">project</span>
+          <div class="lib-main">
+            <a class="lib-title" href="{{ .RelPermalink }}">{{ .Title }}</a>{{ if eq .Params.status "planned" }} <span class="toc-soon"><span class="soon">in progress</span></span>{{ end }}
+            {{ with .Params.summary }}<span class="lib-sum">{{ . }}</span>{{ end }}
+          </div>
+        </div>
+      {{ end }}
+        <div class="lib-row"><div class="lib-main"><a class="lib-title" href="/projects/">All projects, and how they connect &#8594;</a></div></div>
+      </div>
+    </details>
     {{ range $sec := slice "stories" "documents" "scripts" "containers" }}
     {{ $items := (where site.RegularPages "Section" $sec).ByTitle }}
     <details id="{{ $sec }}" class="lib-group" open>
