@@ -4,12 +4,13 @@ summary: "The site you're reading, packaged to run in any web server: a Hugo bui
 hook: "The site you're reading, packaged to run anywhere: Hugo builds it to static files and nginx serves them from a container, so you can run the whole thing on your own machine with one command."
 layers: ["X3"]
 accordion: "X3"
+project: "this-site"
 topics: []
 status: "live"
 visibility: "public"
-image: "nginx:alpine (multi-stage build from hugomods/hugo)"
-pull: ""
-run: "docker build -t netstatedata . && docker run -p 8080:80 netstatedata"
+image: "ghcr.io/jasonmcginn/professionalprofile (nginx unprivileged, multi-stage build from hugomods/hugo)"
+pull: "docker pull ghcr.io/jasonmcginn/professionalprofile:latest"
+run: "docker run -p 8080:8080 ghcr.io/jasonmcginn/professionalprofile:latest"
 repo: "https://github.com/jasonmcginn/ProfessionalProfile"
 pdf: ""
 links: [{label: "How this site is built", url: "/docs/buildlog/"}]
@@ -21,15 +22,15 @@ This website is one of the projects. Everything you're reading is a static site 
 
 - **Hugo** builds the site. Every page starts as Markdown, and the design is a custom terminal theme I wrote by hand, not an off-the-shelf template.
 - **A typed content model** drives everything you see. Each object on the site, whether a story, a document, a script, or a container like this one, is a single tagged Markdown file. The layer accordion on the home page, the library, and the "dig deeper" links all generate themselves from those tags, so adding one file makes an object appear everywhere it belongs.
-- **Docker + nginx** package it to run anywhere. A multi-stage build compiles the site with Hugo, then copies the static output into a small nginx image that serves it on port 80.
+- **Docker + nginx** package it to run anywhere. A multi-stage build compiles the site with Hugo, then copies the static output into a small nginx image that runs as a non-root user and serves it on port 8080.
 - **Azure Static Web Apps** hosts the live site on a global CDN, with free TLS and the custom domain bound to it.
-- **GitHub Actions** ties it together. On every push to `main`, it builds the site with Hugo and deploys it. Pull requests each get their own temporary preview URL, so a change can be reviewed live before it reaches the real site.
+- **GitHub Actions** ties it together. A push to `main` only builds and checks the site. It goes live when I publish a release: Actions builds it, saves a copy of the built site with the release, scans and publishes this container image, then deploys. Pull requests each get their own temporary preview URL, so a change can be reviewed live before it reaches the real site.
 
 ## Run it in a container
 
-From the repository root, build the image and run it. nginx serves the site on port 80, mapped here to 8080:
+Every release is published as an image on the GitHub Container Registry, so you can run it without cloning or building anything. nginx serves the site on port 8080:
 
-Then open `http://localhost:8080`. The `docker build` step runs Hugo inside the image, so you don't need Hugo installed to try it, only Docker.
+Then open `http://localhost:8080`. To run a specific release, replace `latest` with its version, for example `v2.1.0`. To build it yourself instead, run `docker build -t netstatedata .` from the repository root; the build runs Hugo inside the image, so you only need Docker.
 
 ## Or run the source directly
 
