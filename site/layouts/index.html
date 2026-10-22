@@ -7,7 +7,7 @@
     <div class="term" role="img" aria-label="Terminal running whoami.sh: jason.mcginn, IT Coordinator and Systems/Infrastructure Admin; 20+ years cable to cloud; secure, documented, built for the people who use it; stack Azure, Windows Server, Linux, Cisco, VMware, Hyper-V, Docker, SQL Server, PowerShell, Python, Bash; certs Azure Fundamentals (AZ-900), Dynamics 365 Finance and Operations Fundamentals, CompTIA A+ and NB Instructional Certification; status available for work.">
       <div class="term-bar">
         <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
-        <a class="term-title mono term-title-link" href="/docs/buildlog/">// how this site is built</a>
+        {{ with site.GetPage "/projects/living-portfolio" }}<a class="term-title mono term-title-link" href="{{ .RelPermalink }}">// {{ .Title }}</a>{{ end }}
       </div>
       <div class="term-body mono" id="termBody" aria-hidden="true"></div>
     </div>
@@ -28,13 +28,13 @@
   <section id="why">
     <p class="sec-label">// 01 how I work</p>
     <h2 class="sec-h">One approach, applied to very different problems.</h2>
-    <p class="sec-sub" style="max-width:none;">Twenty-plus years across networking, systems, cloud and automation. Five principles run through all of it.</p>
+    <p class="sec-sub" style="max-width:none;">Twenty-plus years across networking, systems, cloud and automation. The problems change; the core way I work them doesn't. These five principles are that approach, in the order I apply them, each one shown in real work.</p>
     <ol class="principles">
-      <li><span class="pr-h">Secure by default.</span><span class="pr-d">I find exactly what a system needs to run, then grant only that and lock the rest down. Least privilege, enforced by policy rather than trust.</span><a class="pr-link" href="/stories/sage/">see it in the Sage lab &#8594;</a></li>
-      <li><span class="pr-h">Methodical delivery.</span><span class="pr-d">Diagnose, document, propose, verify, in that order. I work a problem end to end and write it up, so the fix is something anyone can check and repeat.</span><a class="pr-link" href="/documents/kindergarten/">see it in the kindergarten proposal &#8594;</a></li>
-      <li><span class="pr-h">Depth over guesswork.</span><span class="pr-d">I take neglected systems apart until I know them cold, then rebuild them so a fault traces cleanly from the wall jack to the switch port. Untangling the mess is how I come to trust it.</span><a class="pr-link" href="/stories/rack-rebuilds/">see it in the rack rebuilds &#8594;</a></li>
-      <li><span class="pr-h">Built around the people who use it.</span><span class="pr-d">I don't just run technology, I bend it so it works for people at a level they never have to think about. Nothing beats watching someone get time back every time a solution I rolled out kicks in.</span><a class="pr-link" href="/stories/reporting/">see it in the in-house reporting build &#8594;</a></li>
-      <li><span class="pr-h">Tools that build tools.</span><span class="pr-d">Tools exist to move you toward a goal, and getting there usually takes tools working with other tools. I like building the one that makes the next one easier. My PowerShell Claude API toolkit is a good example: it turns the API into a tool anyone can use, and keeps the keys secure.</span><a class="pr-link" href="/scripts/ps-claude-api-toolkit/">see the API toolkit &#8594;</a></li>
+      <li><span class="pr-h">Know it to the core.</span><span class="pr-d">I take neglected systems apart until I know them cold, then rebuild them so a fault traces cleanly from the wall jack to the switch port. Untangling the mess is how I come to trust it.</span><a class="pr-link" href="/stories/rack-rebuilds/">see it in the rack rebuilds &#8594;</a></li>
+      <li><span class="pr-h">Secure it by default.</span><span class="pr-d">I find exactly what a system needs to run, then grant only that and lock the rest down. Least privilege, enforced by policy rather than trust.</span><a class="pr-link" href="/stories/sage/">see it in the Sage lab &#8594;</a></li>
+      <li><span class="pr-h">Deliver it methodically.</span><span class="pr-d">Diagnose, document, propose, verify, in that order. I work a problem end to end and write it up, so the fix is something anyone can check and repeat.</span><a class="pr-link" href="/documents/kindergarten/">see it in the kindergarten proposal &#8594;</a></li>
+      <li><span class="pr-h">Build it around people.</span><span class="pr-d">I don't just run technology; I shape it so it works for people without them having to think about it. Nothing beats watching someone get time back every time a solution I rolled out kicks in.</span><a class="pr-link" href="/stories/qos/">see it in the QoS fix &#8594;</a></li>
+      <li><span class="pr-h">Build the tools that build the next ones.</span><span class="pr-d">Tools exist to move you toward a goal, and getting there usually takes tools working with other tools. I like building the one that makes the next one easier.</span><a class="pr-link" href="/stories/provisioning/">see it in the account provisioning &#8594;</a></li>
     </ol>
   </section>
 

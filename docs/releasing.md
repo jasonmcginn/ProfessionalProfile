@@ -6,10 +6,10 @@ the site but deploys nothing. Every release is saved twice: the built site as
 
 ## Version numbers
 
-`vMAJOR.MINOR.PATCH`, for example `v2.2.0`. Jason decides every MINOR and MAJOR step.
+`vMAJOR.MINOR.PATCH`, for example `v2.1.1`. Jason decides every MINOR and MAJOR step.
 
-- **PATCH** (`v2.2.1`, `v2.2.2`, ...): the default. Every time changes are published during normal work, the last number goes up.
-- **MINOR** (`v2.3.0`): only when Jason calls a milestone release. The last number goes back to 0.
+- **PATCH** (`v2.1.1`, `v2.1.2`, ...): the default. Every time changes are published during normal work, the last number goes up.
+- **MINOR** (`v2.2.0`): only when Jason calls a milestone release. The last number goes back to 0.
 - **MAJOR** (`v3.0.0`): only when Jason announces a major release.
 
 ## Before a release
@@ -31,7 +31,7 @@ Run `hugo server` locally, hard-refresh, and check:
 
 1. Commit and push to `main`. Wait for the green build check.
 2. GitHub -> Releases -> Draft a new release.
-3. Tag: the next version (for example `v2.1.0`), target `main`.
+3. Tag: the next version (for example `v2.1.1`), target `main`.
 4. Notes: one line per change.
 5. Publish. The Release workflow builds, saves, scans, and deploys.
 6. Check the live site, then the release page for `site-<tag>.zip`.

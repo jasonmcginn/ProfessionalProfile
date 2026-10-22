@@ -7,7 +7,9 @@
   <h1>{{ .Title }}</h1>
   {{ with .Params.hook }}<p class="hook">{{ . | safeHTML }}</p>{{ end }}
   <div class="story-body">
-    {{ .Content }}
+    {{/* Content after an <!--after-pieces--> marker renders below "The pieces". */}}
+    {{ $parts := split .Content "<!--after-pieces-->" }}
+    {{ index $parts 0 | safeHTML }}
 
     <h2>The pieces</h2>
     <p class="proj-note">Each project is laid out in the same order: the problem that started it, the documents that plan it, what was built, and the proof that it works. Every card opens its own page.</p>
@@ -38,6 +40,8 @@
       </div>
     {{ end }}
     </div>
+
+    {{ if gt (len $parts) 1 }}{{ index $parts 1 | safeHTML }}{{ end }}
 
     {{ $uses := slice }}{{ range .Params.builds_on }}{{ with site.GetPage (printf "/projects/%s" .) }}{{ $uses = $uses | append . }}{{ end }}{{ end }}
     {{ $usedby := where (where site.RegularPages "Section" "projects") "Params.builds_on" "intersect" (slice $slug) }}

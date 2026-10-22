@@ -28,6 +28,8 @@ The Living Portfolio is a running record of my work. It shows what I've learned 
 
 That runs through everything here, from the site's design and architecture to the care that goes into the details. Those things are hard to describe on their own, so I demonstrate them instead, live, with prepared environments and working examples. It's the same thing I would do at a company when building a demonstration for users, clients, executives or technical teams.
 
+<!--after-pieces-->
+
 ## About NetState Data
 
 NetState Data is a company name I created so my labs would feel authentic. It is a registered name, so I can also use it for consulting and side work, though long-term work is what I'm looking for. In the labs, NetState Data stands in for any company. Its whole purpose is to be a demonstration platform.
