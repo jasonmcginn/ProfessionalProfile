@@ -17,7 +17,7 @@ evidence:
   - {title: "Phase 4 results: modern remote access", desc: "The same tests as Phase 2 against single packet authorization and WireGuard, side by side with the 2010 knock.", file: ""}
   - {title: "Phase 5 results: traffic shaping", desc: "Latency, loss and load applied on the firewall, with before and after measurements of what the clients experience.", file: ""}
 phases:
-  - {name: "Phase 1", desc: "Firewall and protocols on the wire: watch the open network, lock it down, open only what each task needs, and troubleshoot host firewalls.", status: "planned"}
+  - {name: "Phase 1", desc: "Firewall and protocols on the wire: observe the traffic on the open network, lock it down, open only what each task needs, find the way around it, and troubleshoot host firewalls.", status: "planned"}
   - {name: "Phase 2", desc: "The 2010 knock: hide SSH and RDP behind it, watch the timers work, then break it.", status: "planned"}
   - {name: "Phase 3", desc: "Fix the leaks: remove Telnet, use keys and unique credentials, move the web server to HTTPS, and rerun the Phase 1 attacks.", status: "planned"}
   - {name: "Phase 4", desc: "Modern remote access: the 2010 knock against single packet authorization and WireGuard, under the same tests.", status: "planned"}
@@ -33,26 +33,29 @@ links: []
 A small network that runs on one machine with a single `docker compose up`. A firewall sits between a LAN with two clients and a DMZ with a server. One client knows how to get in, the other is an outsider who scans and gets nothing. The web server is open to everyone, the way a real DMZ serves the public. Remote access (SSH and RDP) starts open, then moves behind the knock in Phase 2. Everything that crosses the firewall is captured, so the proof is in the packets, not in my description of them.
 
 ```text
-   LAN 10.10.10.0/24                          DMZ 10.10.20.0/24
-  +------------------+                      +----------------------+
-  | client-a         |                      | server               |
-  | authorized       |---+              +---| web :80 (open)       |
-  | knock, rdp, ssh  |   |  +--------+  |   | telnet :23, ssh :22  |
-  | curl, tcpdump    |   +--| fw     |--+   | rdp :3389            |
-  +------------------+   |  |deny-all|      +----------------------+
-  +------------------+   |  |knock   |
-  | client-b         |---+  |shaping |
-  | outsider         |      |tcpdump |
-  | nmap, scans      |      +--------+
-  | tcpdump          |
-  +------------------+
+        LAN  10.10.10.0/24                                                  DMZ  10.10.20.0/24
+
+  +--------------------------+                                          +--------------------------+
+  |  client-a    .11         |                                          |  server      .10         |
+  |  authorized user         |          +--------------------+          |  public-facing host      |
+  |  knock, ssh, rdp, curl   |---+      |  fw     .1 / .1    |          |  web    :80  (open)      |
+  |  tcpdump                 |   |      |  firewall + router |          |  telnet :23              |
+  +--------------------------+   +------|  deny-all, knock   |----------|  ssh    :22              |
+                                 |      |  logging, shaping  |          |  rdp    :3389            |
+  +--------------------------+   |      |  tcpdump           |          +--------------------------+
+  |  client-b    .12         |   |      +--------------------+
+  |  outsider                |---+
+  |  nmap, scans, tcpdump    |
+  +--------------------------+
+
+  Every packet between the LAN and the DMZ crosses fw. Nothing in the lab can reach the internet.
 ```
 
 ## How it is structured
 
 Five phases. Each one starts from a checkpoint, a saved copy of the lab exactly where the previous phase leaves you, so you can start at any phase, reset when stuck, or compare your work against it. Each phase ends with its results written up.
 
-**Phase 1: firewall and protocols on the wire.** Everything starts open, with the firewall logging every connection. Watch what crosses it: the same login over Telnet and SSH, one readable on the wire and one not. Lock it down and watch everything break, then open only what each task needs. Finish by troubleshooting host firewalls on the server and client, because the gateway isn't the only firewall in the path.
+**Phase 1: firewall and protocols on the wire.** Everything starts open, with the firewall logging every connection. Observe the network traffic in two views side by side, the firewall log and a packet capture, and watch what crosses it: the same login over Telnet and SSH, one readable on the wire and one not. Lock it down and watch everything break, then open only what each task needs. Then find the way around it: two commands give traffic a second path, and the firewall stays silent while it flows, because a firewall only protects the paths that go through it. Finish by troubleshooting host firewalls on the server and client, because the gateway isn't the only firewall in the path.
 
 **Phase 2: the 2010 knock.** Hide SSH and RDP behind my 2010 knock design, recreated and dated. Knock, watch the door open for one address, watch the timers close it. Then break it: the outsider replays a captured knock and gets the door open too.
 
