@@ -4,7 +4,7 @@ summary: "How I took RDP and SSH off the internet around 2010 [confirm year] and
 hook: ""
 layers: ["L4", "L3"]
 accordion: "L4"
-project: "knock-lab"
+project: "netstate-lab-network"
 topics: []
 status: "planned"
 visibility: "public"

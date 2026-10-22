@@ -10,7 +10,6 @@ repo: "https://github.com/jasonmcginn/ProfessionalProfile"
 builds_on: []
 related: []
 weight: 5
-aliases: ["/docs/project/", "/projects/this-site/"]
 evidence: []
 phases:
   - {name: "v1", desc: "Single-page site (one HTML file) in the wwwprofile repo, deployed to Azure Static Web Apps.", status: "archived"}

@@ -8,7 +8,6 @@ status: "live"
 featured: true
 featorder: 1
 visibility: "public"
-aliases: ["/docs/kindergarten/"]
 pdf: ""
 links: []
 ---

@@ -1,10 +1,10 @@
 ---
-title: "knock-lab exercises"
+title: "The NetState Lab Network: exercises"
 summary: "The scripts that drive the lab: generate web (HTTP) traffic, scan as the outsider, knock as the authorized client, replay a captured knock, and collect the captures."
 hook: ""
 layers: ["L4", "L3"]
 accordion: "L4"
-project: "knock-lab"
+project: "netstate-lab-network"
 topics: []
 status: "planned"
 visibility: "public"

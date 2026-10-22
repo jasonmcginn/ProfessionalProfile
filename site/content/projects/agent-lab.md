@@ -1,22 +1,22 @@
 ---
 title: "agent-lab"
-summary: "Local AI models running on my own hardware inside the knock-lab network, with a first agent that watches the network read-only and reports what it sees."
+summary: "Local AI models running on my own hardware inside The NetState Lab Network, with a first agent that watches the network read-only and reports what it sees."
 hook: "AI agents are only useful in operations if you can trust what they do. This lab sets up local models next to the network lab and starts with one agent that can only watch, so trust is earned before anything can act."
 layers: ["X3", "X4"]
 topics: []
 status: "planned"
 visibility: "public"
 repo: ""
-builds_on: ["knock-lab"]
+builds_on: ["netstate-lab-network"]
 related: []
 weight: 20
 evidence:
   - {title: "The models run locally", desc: "The model runtime answering inside the lab, with no logs or network data leaving it.", file: ""}
-  - {title: "The monitor catches an event", desc: "The monitor spots a problem in the knock-lab network and reports it, with the log lines it saw.", file: ""}
+  - {title: "The monitor catches an event", desc: "The monitor spots a problem in the lab network and reports it, with the log lines it saw.", file: ""}
   - {title: "Read-only, proven", desc: "The monitor tries to change something and is refused, showing its access is limited to watching.", file: ""}
 phases:
-  - {name: "v1", desc: "Local model runtime set up in the lab, next to the knock-lab network.", status: "planned"}
-  - {name: "v2", desc: "Monitor agent: read-only access to knock-lab's logs, captures and web server. It watches and reports, and cannot change anything.", status: "planned"}
+  - {name: "v1", desc: "Local model runtime set up in the lab, next to the lab network.", status: "planned"}
+  - {name: "v2", desc: "Monitor agent: read-only access to the lab network's logs, captures and web server. It watches and reports, and cannot change anything.", status: "planned"}
 pdf: ""
 links: []
 ---
@@ -25,11 +25,11 @@ links: []
 
 ## What it is
 
-Local AI models running on my own hardware, so no logs or network data leave the lab, and a first agent that works on the knock-lab network.
+Local AI models running on my own hardware, so no logs or network data leave the lab, and a first agent that works on The NetState Lab Network.
 
 | Agent | Job | Access |
 |---|---|---|
-| Monitor | Watches knock-lab's logs, captures and web server, and flags what looks wrong | Read-only |
+| Monitor | Watches the lab network's logs, captures and web server, and flags what looks wrong | Read-only |
 
 ## Why start with one agent
 

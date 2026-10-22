@@ -3,7 +3,6 @@ title: "How this site is built"
 summary: "What the site is made of: the toolchain and architecture, how the content is organized, how the domain is set up, and how the work is split between me and AI. Development and releases have their own document."
 project: "living-portfolio"
 weight: 10
-aliases: ["/docs/devprocess/"]
 ---
 
 <div class="wrap story">

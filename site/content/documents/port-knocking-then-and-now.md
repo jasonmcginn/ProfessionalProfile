@@ -4,7 +4,7 @@ summary: "My 2010 knock design next to Single Packet Authorization and WireGuard
 hook: ""
 layers: ["L4", "L5-6"]
 accordion: "L4"
-project: "knock-lab"
+project: "netstate-lab-network"
 topics: []
 status: "planned"
 visibility: "public"

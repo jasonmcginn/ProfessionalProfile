@@ -1,10 +1,10 @@
 ---
-title: "knock-lab (Docker Compose)"
+title: "The NetState Lab Network (Docker Compose)"
 summary: "The whole lab network, a firewall, two clients and a server, brought up on one machine with a single command."
 hook: ""
 layers: ["L4", "L3", "X2"]
 accordion: "L4"
-project: "knock-lab"
+project: "netstate-lab-network"
 topics: []
 status: "planned"
 visibility: "public"

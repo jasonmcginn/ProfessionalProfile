@@ -1,10 +1,10 @@
 ---
-title: "knock-lab: design and runbook"
+title: "The NetState Lab Network: design and runbook"
 summary: "The lab's topology, firewall policy, knock design and how to run every exercise, with the elevated permissions it needs and why."
 hook: ""
 layers: ["L4", "L3"]
 accordion: "L4"
-project: "knock-lab"
+project: "netstate-lab-network"
 topics: []
 status: "planned"
 visibility: "public"

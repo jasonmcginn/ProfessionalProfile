@@ -14,9 +14,9 @@
         <span class="proj-card-h">{{ .Title }}{{ if eq .Params.status "planned" }} <span class="soon">in progress</span>{{ end }}</span>
         {{ with .Params.summary }}<span class="proj-card-b">{{ . }}</span>{{ end }}
         {{ if or .Params.builds_on $usedby .Params.related }}<span class="proj-links mono">
-          {{ with .Params.builds_on }}<span>builds on: {{ delimit . ", " }}</span>{{ end }}
-          {{ with $usedby }}<span>leads to: {{ range $i, $p := . }}{{ if $i }}, {{ end }}{{ $p.File.ContentBaseName }}{{ end }}</span>{{ end }}
-          {{ with .Params.related }}<span>related: {{ delimit . ", " }}</span>{{ end }}
+          {{ with .Params.builds_on }}<span>builds on: {{ range $i, $sl := . }}{{ if $i }}, {{ end }}{{ with site.GetPage (printf "/projects/%s" $sl) }}{{ .Title }}{{ else }}{{ $sl }}{{ end }}{{ end }}</span>{{ end }}
+          {{ with $usedby }}<span>leads to: {{ range $i, $p := . }}{{ if $i }}, {{ end }}{{ $p.Title }}{{ end }}</span>{{ end }}
+          {{ with .Params.related }}<span>related: {{ range $i, $sl := . }}{{ if $i }}, {{ end }}{{ with site.GetPage (printf "/projects/%s" $sl) }}{{ .Title }}{{ else }}{{ $sl }}{{ end }}{{ end }}</span>{{ end }}
         </span>{{ end }}
         <span class="proj-card-go mono">open &rarr;</span>
       </a>
