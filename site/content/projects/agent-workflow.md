@@ -49,3 +49,7 @@ Splitting the roles means the agent that watches can't act, and no agent that ac
 ## Tools
 
 [TBD: orchestration, and how the agents pass work to each other.]
+
+## How it runs
+
+It starts from The NetState Lab Network's own Compose file, alongside the network: `docker compose --profile workflow up -d`. One file runs the whole lab.

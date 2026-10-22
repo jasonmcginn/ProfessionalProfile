@@ -43,3 +43,7 @@ The same rule I use for people applies to agents: least privilege, documented, a
 ## Tools
 
 [TBD: model runtime and how the monitor reads the lab's logs and captures.]
+
+## How it runs
+
+It starts from The NetState Lab Network's own Compose file, alongside the network: `docker compose --profile agents up -d`. One file runs the whole lab.

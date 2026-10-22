@@ -3,7 +3,7 @@ title: "In-house reporting instead of $300-an-hour consulting"
 summary: "Made the case to build the Controller's reporting in-house with PHP and SQL instead of paying $300 an hour."
 hook: "The Controller needed deeper reporting, and outside help ran about $300 an hour. I made the case to build it in-house instead."
 layers: ["L8", "L7"]
-accordion: "L8"
+accordion: "L7"
 topics: []
 status: "live"
 visibility: "public"
