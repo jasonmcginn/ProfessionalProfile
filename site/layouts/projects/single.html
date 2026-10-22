@@ -14,17 +14,16 @@
     <h2>The pieces</h2>
     <p class="proj-note">Each project is laid out in the same order: the problem that started it, the documents that plan it, what was built, and the proof that it works. Every card opens its own page.</p>
     {{ $steps := slice
-      (dict "sec" "stories"    "step" "1 &middot; diagnose")
-      (dict "sec" "documents"  "step" "2 &middot; document &amp; propose")
-      (dict "sec" "docs"       "step" "2 &middot; document &amp; propose")
-      (dict "sec" "containers" "step" "3 &middot; build")
-      (dict "sec" "scripts"    "step" "3 &middot; build: exercises") }}
+      (dict "secs" (slice "stories")           "label" "story"     "step" "1 &middot; diagnose")
+      (dict "secs" (slice "documents" "docs")  "label" "document"  "step" "2 &middot; document &amp; propose")
+      (dict "secs" (slice "containers")        "label" "container" "step" "3 &middot; build")
+      (dict "secs" (slice "scripts")           "label" "script"    "step" "3 &middot; build: exercises") }}
     <div class="proj-grid">
     {{ range $steps }}
       {{ $st := . }}
-      {{ range (where $members "Section" $st.sec).ByWeight }}
+      {{ range (where $members "Section" "in" $st.secs).ByWeight }}
       <a class="proj-card{{ if eq .Params.status "planned" }} is-planned{{ end }}" href="{{ .RelPermalink }}">
-        {{ $sec := cond (eq $st.sec "docs") "documents" $st.sec }}<span class="proj-step mono"><span class="cat-{{ $sec }}">{{ singularize $sec }}</span> &middot; {{ $st.step | safeHTML }}</span>
+        <span class="proj-step mono"><span class="cat-{{ $st.label | pluralize }}">{{ $st.label }}</span> &middot; {{ $st.step | safeHTML }}</span>
         <span class="proj-card-h">{{ .Title }}{{ if eq .Params.status "planned" }} <span class="soon">planned</span>{{ end }}</span>
         {{ with .Params.summary }}<span class="proj-card-b">{{ . }}</span>{{ end }}
         <span class="proj-card-go mono">read &rarr;</span>
