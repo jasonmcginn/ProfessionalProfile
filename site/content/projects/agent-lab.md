@@ -15,8 +15,9 @@ evidence:
   - {title: "The monitor catches an event", desc: "The monitor spots a problem in the lab network and reports it, with the log lines it saw.", file: ""}
   - {title: "Read-only, proven", desc: "The monitor tries to change something and is refused, showing its access is limited to watching.", file: ""}
 phases:
-  - {name: "v1", desc: "Local model runtime set up in the lab, next to the lab network.", status: "planned"}
-  - {name: "v2", desc: "Monitor agent: read-only access to the lab network's logs, captures and web server. It watches and reports, and cannot change anything.", status: "planned"}
+  - {name: "v1", desc: "Local model runtime set up in the lab, next to the lab network, running on the processor alone. The start of measuring the smallest machine it works on.", status: "planned"}
+  - {name: "v2", desc: "Rule layer, no AI: health checks, known events from the logs (bans, failed logins, a service down) and a dated local copy of the vulnerability databases.", status: "planned"}
+  - {name: "v3", desc: "Monitor agent: read-only access to the lab network's logs, captures and web server. It watches and reports, and cannot change anything, including when a log line tries to tell it to.", status: "planned"}
 pdf: ""
 links: []
 ---
@@ -30,6 +31,10 @@ Local AI models running on my own hardware, so no logs or network data leave the
 | Agent | Job | Access |
 |---|---|---|
 | Monitor | Watches the lab network's logs, captures and web server, and flags what looks wrong | Read-only |
+
+## Rules detect, AI judges
+
+Simple checks don't need AI. Is the site up, is the service running, did Fail2Ban just ban someone: plain scripts answer those instantly and reliably, and there is nothing in them to trick. The AI is kept for what rules can't express: patterns, judgment, and explaining what happened in plain language.
 
 ## Why start with one agent
 

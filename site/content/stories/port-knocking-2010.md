@@ -1,6 +1,6 @@
 ---
 title: "Hiding my services behind a knock (around 2010)"
-summary: "How I took RDP and SSH off the internet around 2010 [confirm year] and hid it behind a knock of invalid TCP flags, and used it as my real remote access."
+summary: "How I took RDP and SSH off the internet around 2010 and hid it behind a knock of invalid TCP flags, and used it as my real remote access."
 hook: ""
 layers: ["L4", "L3"]
 accordion: "L4"
