@@ -6,11 +6,11 @@ the site but deploys nothing. Every release is saved twice: the built site as
 
 ## Version numbers
 
-`vMAJOR.MINOR.PATCH`, for example `v2.1.0`.
+`vMAJOR.MINOR.PATCH`, for example `v2.2.0`. Jason decides every MINOR and MAJOR step.
 
-- **PATCH** (`v2.1.1`): fixes, typos, small corrections.
-- **MINOR** (`v2.2.0`): new pages, features, or sections.
-- **MAJOR** (`v3.0.0`): a redesign or a change to how the site is built.
+- **PATCH** (`v2.2.1`, `v2.2.2`, ...): the default. Every time changes are published during normal work, the last number goes up.
+- **MINOR** (`v2.3.0`): only when Jason calls a milestone release. The last number goes back to 0.
+- **MAJOR** (`v3.0.0`): only when Jason announces a major release.
 
 ## Before a release
 
