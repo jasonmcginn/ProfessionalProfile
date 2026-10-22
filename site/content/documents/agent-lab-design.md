@@ -1,6 +1,6 @@
 ---
-title: "agent-lab: roles and guardrails"
-summary: "What each agent is allowed to see and do, how approval works, how actions are logged, and what the agents must never touch."
+title: "agent-lab: setup and guardrails"
+summary: "How the local models are set up in the lab, what the monitor is allowed to see, and how its read-only access is enforced and logged."
 hook: ""
 layers: ["X3", "X1"]
 accordion: "X3"
@@ -13,4 +13,4 @@ pdf: ""
 links: []
 ---
 <p class="tbd-note">[Placeholder: not written yet.]</p>
-<p>Intent: the policy written before the agents. Each role's permissions, the approval step for the fixer, the audit log, how a bad suggestion is caught, and the limits of running models locally.</p>
+<p>Intent: the policy written before the agent. How the models run locally, exactly what the monitor can read, how read-only access is enforced, the log of what it sees and reports, and the limits of running models locally.</p>

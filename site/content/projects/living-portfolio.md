@@ -1,7 +1,7 @@
 ---
 title: "The Living Portfolio"
 summary: "Why this site exists, what it is for, and how it is designed, built and deployed, shown live as a demonstration of how I work."
-hook: "This page explains this website end to end: why I built it, what it is for, and how it is designed, built and deployed. The site itself is the demonstration."
+hook: "This page explains this website end to end: why I built it, what it is for, and how it is designed, built and deployed. The site itself is one of a set of demonstrations."
 layers: ["L7", "X2", "X3"]
 topics: []
 status: "live"
@@ -24,7 +24,7 @@ links: []
 
 ## What this is
 
-The Living Portfolio is a running record of my work. It shows more than what I've learned and experienced over the years: it shows how I reason through a problem, the approach I take, and how I apply it in practice.
+The Living Portfolio is a running record of my work. It shows what I've learned and experienced over the years. More than that, it shows how I reason through a problem and put what I know into practice.
 
 That runs through everything here, from the site's design and architecture to the care that goes into the details. Those things are hard to describe on their own, so I demonstrate them instead, live, with prepared environments and working examples. It's the same thing I would do at a company when building a demonstration for users, clients, executives or technical teams.
 

@@ -1,14 +1,14 @@
 ---
-title: "agent-lab: Fixer agent"
-summary: "Proposes a fix for what the monitor found. Nothing runs until a person approves it."
+title: "agent-workflow: Troubleshooter agent"
+summary: "Diagnoses what the monitor found and proposes a fix. Nothing runs until a person approves it."
 hook: ""
 layers: ["X3", "X4"]
 accordion: "X3"
-project: "agent-lab"
+project: "agent-workflow"
 topics: []
 status: "planned"
 visibility: "public"
-weight: 20
+weight: 30
 language: ""
 repo: ""
 run: ""

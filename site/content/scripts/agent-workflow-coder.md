@@ -1,14 +1,14 @@
 ---
-title: "agent-lab: Communicator agent"
-summary: "Explains what happened and what was done, in plain language, to the person who needs to know."
+title: "agent-workflow: Coder agent"
+summary: "Writes or changes scripts when a fix needs code. Nothing runs until a person approves it."
 hook: ""
 layers: ["X3", "X4"]
 accordion: "X3"
-project: "agent-lab"
+project: "agent-workflow"
 topics: []
 status: "planned"
 visibility: "public"
-weight: 30
+weight: 40
 language: ""
 repo: ""
 run: ""

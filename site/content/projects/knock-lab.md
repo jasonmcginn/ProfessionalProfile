@@ -7,7 +7,7 @@ topics: []
 status: "planned"
 visibility: "public"
 repo: "https://github.com/jasonmcginn/knock-lab"
-builds_on: []
+builds_on: ["living-portfolio"]
 related: []
 weight: 10
 evidence:

@@ -15,7 +15,7 @@
         {{ with .Params.summary }}<span class="proj-card-b">{{ . }}</span>{{ end }}
         {{ if or .Params.builds_on $usedby .Params.related }}<span class="proj-links mono">
           {{ with .Params.builds_on }}<span>builds on: {{ delimit . ", " }}</span>{{ end }}
-          {{ with $usedby }}<span>used by: {{ range $i, $p := . }}{{ if $i }}, {{ end }}{{ $p.File.ContentBaseName }}{{ end }}</span>{{ end }}
+          {{ with $usedby }}<span>leads to: {{ range $i, $p := . }}{{ if $i }}, {{ end }}{{ $p.File.ContentBaseName }}{{ end }}</span>{{ end }}
           {{ with .Params.related }}<span>related: {{ delimit . ", " }}</span>{{ end }}
         </span>{{ end }}
         <span class="proj-card-go mono">open &rarr;</span>
