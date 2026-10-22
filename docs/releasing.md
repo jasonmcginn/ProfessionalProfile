@@ -24,6 +24,7 @@ Run `hugo server` locally, hard-refresh, and check:
 - [ ] Library, Projects, and one page of each type open
 - [ ] Phone width (390px): normal navigation, no sideways scroll
 - [ ] Every changed file read once; nothing private in the diff
+- [ ] Drafts checked: `git grep -l "draft: true" site/content` lists only pages meant to stay hidden
 - [ ] Last push to `main` shows a green "Build check" in Actions
 
 ## Release

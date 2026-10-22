@@ -1,7 +1,7 @@
 ---
 title: "How this site is built"
 summary: "What the site is made of and how I work on it: the toolchain and architecture, the domain setup, the local loop, version control, previews, guardrails for a public repo, and rollback."
-project: "this-site"
+project: "living-portfolio"
 weight: 10
 aliases: ["/docs/devprocess/"]
 ---
@@ -11,7 +11,7 @@ aliases: ["/docs/devprocess/"]
 <p class="story-where mono">// how this site is built</p>
 <h1>How this site is built</h1>
 <p class="hook">This page is a profile, and also a working piece of infrastructure. Here is what it is made of, the toolchain and how the domain is set up, and then how I actually work on it: making a change, checking it, and shipping it safely to production.</p>
-<p class="mono series-nav">Part of <a href="/projects/this-site/">This site, as a project</a></p>
+<p class="mono series-nav">Part of <a href="/projects/living-portfolio/">The Living Portfolio</a></p>
 <div class="doc-toc">
 <p class="toc-h">On this page</p>
 <ol>

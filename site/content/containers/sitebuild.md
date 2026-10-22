@@ -4,7 +4,7 @@ summary: "The site you're reading, packaged to run in any web server: a Hugo bui
 hook: "The site you're reading, packaged to run anywhere: Hugo builds it to static files and nginx serves them from a container, so you can run the whole thing on your own machine with one command."
 layers: ["X3"]
 accordion: "X3"
-project: "this-site"
+project: "living-portfolio"
 topics: []
 status: "live"
 visibility: "public"

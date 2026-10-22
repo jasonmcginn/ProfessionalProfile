@@ -610,3 +610,6 @@
   .story-body pre{overflow-x:auto; max-width:100%;}
   .proj-links{display:flex; flex-direction:column; gap:3px; font-size:.72rem; color:var(--accent-ink);}
   .cat-projects{color:#e06c75;}
+  @media (max-width:640px){ .story-body table{display:block; overflow-x:auto; max-width:100%;} }
+  .story-body a{overflow-wrap:anywhere;}
+  .story-body h3{font-size:1rem; font-weight:600; color:var(--ink); margin:18px 0 6px;}
