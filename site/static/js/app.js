@@ -209,7 +209,7 @@
 })();
 
 (function(){ // xwin-desktop: open objects as windows with a taskbar
-  var SECTIONS=["/stories/","/documents/","/scripts/","/containers/","/docs/","/projects/"];
+  var SECTIONS=["/stories/","/documents/","/scripts/","/containers/","/docs/"]; // project pages open full page; their pieces open as windows
   var tbWins=document.getElementById("tbWins");
   if(!tbWins) return;
   var z=200, wins={}, idc=0;
