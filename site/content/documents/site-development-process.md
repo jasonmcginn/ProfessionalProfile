@@ -3,7 +3,7 @@ title: "The Site Development Process"
 summary: "How a change to this site goes from an idea to production: the local loop, drafts, version control, the build check, versioned releases, rollback, and the guardrails around a public repository."
 hook: "Every change to this site follows the same path: made and reviewed locally, committed as a restore point, checked by CI, and released under a version number, with a saved copy of every release and a way back from any of them."
 layers: ["X3", "X2"]
-accordion: "X3"
+accordion: ""
 project: "living-portfolio"
 topics: []
 status: "live"

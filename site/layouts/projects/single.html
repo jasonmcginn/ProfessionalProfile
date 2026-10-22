@@ -12,7 +12,7 @@
     {{ index $parts 0 | safeHTML }}
 
     <h2>The pieces</h2>
-    <p class="proj-note">Each project is laid out in the same order: the problem that started it, the documents that plan it, what was built, and the proof that it works. Every card opens its own page.</p>
+    <p class="proj-note">Each project is laid out in the same order: the problem that started it, the documents that plan it, what was built, and the proof that it works. Open any card to read it.</p>
     {{ $steps := slice
       (dict "secs" (slice "stories")           "label" "story"     "step" "1 &middot; diagnose")
       (dict "secs" (slice "documents" "docs")  "label" "document"  "step" "2 &middot; document &amp; propose")

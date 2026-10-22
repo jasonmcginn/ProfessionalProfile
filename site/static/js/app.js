@@ -209,7 +209,7 @@
 })();
 
 (function(){ // xwin-desktop: open objects as windows with a taskbar
-  var SECTIONS=["/stories/","/documents/","/scripts/","/containers/"];
+  var SECTIONS=["/stories/","/documents/","/scripts/","/containers/","/docs/","/projects/"];
   var tbWins=document.getElementById("tbWins");
   if(!tbWins) return;
   var z=200, wins={}, idc=0;
@@ -235,7 +235,7 @@
       if(!story){ location.href=url; return; }
       var h1=story.querySelector("h1");
       var title=h1?h1.textContent.trim():document.title;
-      var sec=url.split("/").filter(Boolean)[0]||"stories";
+      var sec=url.split("/").filter(Boolean)[0]||"stories"; if(sec==="docs") sec="documents";
       var bl=story.querySelector(".backlink"); if(bl) bl.remove();
       if(h1) h1.remove();
       make(url, title, sec, story.innerHTML);
