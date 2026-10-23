@@ -61,7 +61,7 @@
     <table>
       <thead><tr><th>Phase</th><th>Scope</th><th>Status</th></tr></thead>
       <tbody>
-      {{ range . }}<tr><td class="mono">{{ .name }}</td><td>{{ .desc }}</td><td class="mono">{{ .status }}</td></tr>{{ end }}
+      {{ range . }}<tr><td class="mono">{{ if .url }}<a href="{{ .url }}">{{ .name }}</a>{{ else }}{{ .name }}{{ end }}</td><td>{{ .desc }}</td><td class="mono">{{ .status }}</td></tr>{{ end }}
       </tbody>
     </table>
     {{ end }}

@@ -3,7 +3,7 @@ title: "Phase 1: firewall and protocols on the wire"
 short: "lab network · phase 1"
 project: "netstate-lab-network"
 hook: "Start with an open network, watch what crosses the firewall, then lock it down and find the way around it."
-coming: "Phase 2: the 2010 knock"
+coming: "Phase 2: Legacy Port Knocking Test"
 layers: ["L3", "L4", "L7"]
 visibility: "public"
 ---
