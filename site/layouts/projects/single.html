@@ -56,12 +56,12 @@
     </div>
     {{ end }}
 
-    {{ with .Params.phases }}
+    {{ if and .Params.phases (not .Params.custom_phases) }}
     <h2>Phases</h2>
     <table>
       <thead><tr><th>Phase</th><th>Scope</th><th>Status</th></tr></thead>
       <tbody>
-      {{ range . }}<tr><td class="mono">{{ if .url }}<a href="{{ .url }}">{{ .name }}</a>{{ else }}{{ .name }}{{ end }}</td><td>{{ .desc }}</td><td class="mono">{{ .status }}</td></tr>{{ end }}
+      {{ range .Params.phases }}<tr><td class="mono">{{ if .url }}<a href="{{ .url }}">{{ .name }}</a>{{ else }}{{ .name }}{{ end }}</td><td>{{ .desc }}</td><td class="mono">{{ .status }}</td></tr>{{ end }}
       </tbody>
     </table>
     {{ end }}

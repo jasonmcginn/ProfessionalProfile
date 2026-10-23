@@ -1,0 +1,18 @@
+{{- $phases := $.Page.Params.phases -}}
+<div class="lab-phases">
+{{- range $i, $ph := $phases -}}
+  {{- $sec := false -}}{{- with $ph.url -}}{{- $sec = site.GetPage (strings.TrimSuffix "/" .) -}}{{- end -}}
+  <div class="lab-phase">
+  {{- if $sec -}}
+    <a class="lab-phase-head" href="{{ $ph.url }}">
+      <span class="lab-phase-name">{{ $sec.Title }}</span>
+      <span class="lab-phase-meta mono">{{ with $ph.status }}{{ . }} &middot; {{ end }}view steps &rarr;</span>
+    </a>
+    <p class="lab-phase-desc">{{ $ph.desc }}</p>
+  {{- else -}}
+    <div class="lab-phase-head is-planned"><span class="lab-phase-name">{{ $ph.name }}</span><span class="lab-phase-meta mono">{{ $ph.status }}</span></div>
+    <p class="lab-phase-desc">{{ $ph.desc }}</p>
+  {{- end -}}
+  </div>
+{{- end -}}
+</div>
