@@ -4,6 +4,7 @@ short: "lab network · phase 3"
 project: "netstate-lab-network"
 hook: "Every weakness Phase 1 exposed gets closed: Telnet gone, the web login encrypted, SSH on keys instead of passwords. Then the old leaks are checked again, and they're shut."
 coming: "Phase 4: modern remote access"
+next_phase: "/guide/netstate-lab-network/phase-4/"
 layers: ["L3", "L4", "L7"]
 visibility: "public"
 ---

@@ -10,7 +10,7 @@
       <thead><tr><th>Step</th><th>What you'll do</th><th>Time</th></tr></thead>
       <tbody>
       {{ range .RegularPages.ByWeight }}<tr><td class="mono">{{ .Params.step }}</td><td><a href="{{ .RelPermalink }}">{{ .Title }}</a><br><span class="muted">{{ .Params.goal }}</span></td><td class="mono">{{ .Params.time }}</td></tr>{{ end }}
-      {{ with .Params.coming }}<tr><td class="mono">next</td><td>{{ . }} <span class="muted">(coming)</span></td><td></td></tr>{{ end }}
+      {{ with .Params.next_phase }}{{ with site.GetPage (strings.TrimSuffix "/" .) }}<tr><td class="mono">next</td><td><a href="{{ .RelPermalink }}">{{ .Title }}</a></td><td></td></tr>{{ end }}{{ else }}{{ with $.Params.coming }}<tr><td class="mono">next</td><td>{{ . }} <span class="muted">(coming)</span></td><td></td></tr>{{ end }}{{ end }}
       </tbody>
     </table>
     {{ with .RegularPages.ByWeight }}<div class="actions"><a class="btn primary" href="{{ (index . 0).RelPermalink }}">start at step 0 &#8594;</a></div>{{ end }}

@@ -4,6 +4,7 @@ short: "lab network · phase 4"
 project: "netstate-lab-network"
 hook: "The legacy knock had one weakness: anyone who saw it could replay it. This phase puts it next to Single Packet Authorization, which can't be replayed, and measures the difference in the lab."
 coming: "Phase 5: traffic shaping"
+next_phase: "/guide/netstate-lab-network/phase-5/"
 layers: ["L3", "L4", "L7"]
 visibility: "public"
 ---

@@ -12,7 +12,7 @@
   </div>
   <nav class="guide-nav">
     {{ with $prev }}<a class="btn" href="{{ .RelPermalink }}">&#8592; step {{ .Params.step }}: {{ .Title }}</a>{{ else }}<span></span>{{ end }}
-    {{ with $next }}<a class="btn primary" href="{{ .RelPermalink }}">step {{ .Params.step }}: {{ .Title }} &#8594;</a>{{ else }}{{ with $.CurrentSection.Params.coming }}<span class="btn is-disabled" aria-disabled="true">next: {{ . }} (coming)</span>{{ end }}{{ end }}
+    {{ with $next }}<a class="btn primary" href="{{ .RelPermalink }}">step {{ .Params.step }}: {{ .Title }} &#8594;</a>{{ else }}{{ with $.CurrentSection.Params.next_phase }}{{ with site.GetPage (strings.TrimSuffix "/" .) }}<a class="btn primary" href="{{ .RelPermalink }}">next: {{ .Title }} &#8594;</a>{{ end }}{{ else }}{{ with $.CurrentSection.Params.coming }}<span class="btn is-disabled" aria-disabled="true">next: {{ . }} (coming)</span>{{ end }}{{ end }}{{ end }}
   </nav>
 </div></div>
 {{ end }}

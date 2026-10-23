@@ -4,6 +4,7 @@ short: "lab network · phase 1"
 project: "netstate-lab-network"
 hook: "Start with an open network, watch what crosses the firewall, then lock it down and find the way around it."
 coming: "Phase 2: Legacy Port Knocking Test"
+next_phase: "/guide/netstate-lab-network/phase-2/"
 layers: ["L3", "L4", "L7"]
 visibility: "public"
 ---

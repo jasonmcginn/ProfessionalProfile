@@ -20,7 +20,7 @@ evidence:
   - {title: "Phase 5 results: traffic shaping", desc: "Before and after measurements from the clients.", file: ""}
 phases:
   - {name: "Phase 1", url: "/guide/netstate-lab-network/phase-1/", desc: "Stand the network up and watch it in the open: read logins off the wire, lock the firewall down rule by rule, then find the one way around it.", status: "guide ready: 11 steps"}
-  - {name: "Phase 2", url: "/guide/netstate-lab-network/phase-2/", desc: "Hide SSH and RDP behind a port knock so they vanish from the network, send the secret to open them, then see why a knock anyone can copy eventually breaks.", status: "in progress: steps 0 to 4"}
+  - {name: "Phase 2", url: "/guide/netstate-lab-network/phase-2/", desc: "Hide SSH and RDP behind a port knock so they vanish from the network, send the secret to open them, then see why a knock anyone can copy eventually breaks.", status: "in progress: steps 0 to 8"}
   - {name: "Phase 3", url: "/guide/netstate-lab-network/phase-3/", desc: "Close every weakness from Phase 1 by hand: drop Telnet, move the web login to HTTPS, switch SSH to keys, then prove each leak is shut.", status: "guide ready: 8 steps"}
   - {name: "Phase 4", url: "/guide/netstate-lab-network/phase-4/", desc: "Put the knock next to Single Packet Authorization under the same replay test, and watch the modern one hold where the knock gave way. WireGuard is covered as a read.", status: "guide ready: 5 steps"}
   - {name: "Phase 5", url: "/guide/netstate-lab-network/phase-5/", desc: "Shape the link on the firewall and measure what the clients feel: cap the bandwidth, add delay and jitter, then drop packets on purpose.", status: "guide ready: 4 steps"}

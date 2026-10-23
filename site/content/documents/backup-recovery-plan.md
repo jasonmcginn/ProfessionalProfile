@@ -6,8 +6,9 @@ layers: ["X4"]
 accordion: "X4"
 project: ""
 topics: []
-draft: true
-status: "planned"
+status: "live"
+featured: true
+featorder: 2
 visibility: "public"
 pdf: ""
 links: []
