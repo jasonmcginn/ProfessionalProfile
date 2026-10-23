@@ -632,3 +632,19 @@
   @media (max-width:640px){ .story-body table{display:block; overflow-x:auto; max-width:100%;} }
   .story-body a{overflow-wrap:anywhere;}
   .story-body h3{font-size:1rem; font-weight:600; color:var(--ink); margin:18px 0 6px;}
+
+  /* --- retro system-tray icons --- */
+  .tray-icons{display:flex; align-items:center; gap:7px; padding-right:2px;}
+  .tray-ico{display:inline-flex; align-items:center; color:var(--ink-soft); cursor:default; transition:color .15s ease;}
+  .tray-ico svg{display:block;}
+  .tray-ico:hover{color:var(--ink);}
+  @keyframes trayblink{0%,72%{opacity:1;} 86%{opacity:.2;} 100%{opacity:1;}}
+  .tray-blink{animation:trayblink 1.7s steps(1,end) infinite;}
+  @media (prefers-reduced-motion:reduce){ .tray-blink{animation:none;} }
+  @media (max-width:560px){ .tray-icons{display:none;} }
+
+  /* Lab guide pages */
+  .guide-nav{display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap; margin:36px 0 10px; padding-top:20px; border-top:1px solid var(--line);}
+  .guide .story-body h3{margin-top:28px;}
+  .guide .story-body .cmd{margin:8px 0 6px; padding-right:62px;}
+  .guide .muted{color:var(--ink-soft); font-size:.9em;}

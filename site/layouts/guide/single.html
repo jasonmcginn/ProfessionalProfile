@@ -1,0 +1,18 @@
+{{ define "main" }}
+{{ $pages := .CurrentSection.RegularPages.ByWeight }}
+{{ $prev := false }}{{ $next := false }}
+{{ range $i, $p := $pages }}{{ if eq $p.Permalink $.Permalink }}{{ if gt $i 0 }}{{ $prev = index $pages (sub $i 1) }}{{ end }}{{ if lt (add $i 1) (len $pages) }}{{ $next = index $pages (add $i 1) }}{{ end }}{{ end }}{{ end }}
+<div class="storyview"><div class="wrap story guide">
+  <a class="backlink mono" href="{{ .CurrentSection.RelPermalink }}">&#8592; {{ .CurrentSection.Title }}</a>
+  <p class="story-where mono">// guide &middot; {{ .CurrentSection.Params.short }} &middot; step {{ .Params.step }} of {{ sub (len $pages) 1 }}{{ with .Params.time }} &middot; {{ . }}{{ end }}</p>
+  <h1>{{ .Title }}</h1>
+  {{ with .Params.goal }}<p class="hook"><b>Goal:</b> {{ . | safeHTML }}</p>{{ end }}
+  <div class="story-body">
+    {{ .Content }}
+  </div>
+  <nav class="guide-nav">
+    {{ with $prev }}<a class="btn" href="{{ .RelPermalink }}">&#8592; step {{ .Params.step }}: {{ .Title }}</a>{{ else }}<span></span>{{ end }}
+    {{ with $next }}<a class="btn primary" href="{{ .RelPermalink }}">step {{ .Params.step }}: {{ .Title }} &#8594;</a>{{ else }}{{ with $.CurrentSection.Params.coming }}<span class="btn is-disabled" aria-disabled="true">next: {{ . }} (coming)</span>{{ end }}{{ end }}
+  </nav>
+</div></div>
+{{ end }}

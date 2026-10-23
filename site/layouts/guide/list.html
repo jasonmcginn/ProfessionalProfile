@@ -1,0 +1,19 @@
+{{ define "main" }}
+<div class="storyview"><div class="wrap story guide">
+  {{ with .Params.project }}{{ with site.GetPage (printf "/projects/%s" .) }}<a class="backlink mono" href="{{ .RelPermalink }}">&#8592; {{ .Title }}</a>{{ end }}{{ end }}
+  <p class="story-where mono">// guide &middot; {{ .Params.short }}</p>
+  <h1>{{ .Title }}</h1>
+  {{ with .Params.hook }}<p class="hook">{{ . | safeHTML }}</p>{{ end }}
+  <div class="story-body">
+    {{ .Content }}
+    <table>
+      <thead><tr><th>Step</th><th>What you'll do</th><th>Time</th></tr></thead>
+      <tbody>
+      {{ range .RegularPages.ByWeight }}<tr><td class="mono">{{ .Params.step }}</td><td><a href="{{ .RelPermalink }}">{{ .Title }}</a><br><span class="muted">{{ .Params.goal }}</span></td><td class="mono">{{ .Params.time }}</td></tr>{{ end }}
+      {{ with .Params.coming }}<tr><td class="mono">next</td><td>{{ . }} <span class="muted">(coming)</span></td><td></td></tr>{{ end }}
+      </tbody>
+    </table>
+    {{ with .RegularPages.ByWeight }}<div class="actions"><a class="btn primary" href="{{ (index . 0).RelPermalink }}">start at step 0 &#8594;</a></div>{{ end }}
+  </div>
+</div></div>
+{{ end }}

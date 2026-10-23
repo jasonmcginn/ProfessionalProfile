@@ -68,7 +68,7 @@
 
     {{ with .Params.repo }}
     <div class="actions">
-      {{ if eq $.Params.status "live" }}<a class="btn primary" href="{{ . }}" target="_blank" rel="noopener">view repo &#8594;</a>
+      {{ if or (eq $.Params.status "live") $.Params.repo_published }}<a class="btn primary" href="{{ . }}" target="_blank" rel="noopener">view repo &#8594;</a>
       {{ else }}<span class="btn is-disabled" aria-disabled="true">repo not published yet</span>{{ end }}
     </div>
     {{ end }}

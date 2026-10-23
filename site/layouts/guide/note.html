@@ -1,0 +1,11 @@
+{{ define "main" }}
+<div class="storyview"><div class="wrap story guide">
+  {{ with site.GetPage .Params.back }}<a class="backlink mono" href="{{ .RelPermalink }}">&#8592; {{ .Title }}</a>{{ end }}
+  <p class="story-where mono">// guide &middot; {{ .Params.kind | default "note" }}</p>
+  <h1>{{ .Title }}</h1>
+  {{ with .Params.hook }}<p class="hook">{{ . | safeHTML }}</p>{{ end }}
+  <div class="story-body">
+    {{ .Content }}
+  </div>
+</div></div>
+{{ end }}
