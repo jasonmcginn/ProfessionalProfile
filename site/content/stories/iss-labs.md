@@ -7,15 +7,52 @@ accordion: "L4"
 topics: []
 status: "live"
 visibility: "public"
+service: "process, templates and training"
+glance:
+  - {k: "where", v: "Eastern College · Instructor and Network Administrator · 2008 to 2010"}
+  - {k: "problem", v: "Students Knew the Book, Not How Technology Behaves"}
+  - {k: "built", v: "A Three-Lab Progression, on My Own Evenings"}
+  - {k: "tools", v: "Windows Server · Routers · DNS · Web · VPN · Wireshark · nmap"}
+related:
+  - {kind: "The same approach, current tools", title: "The NetState Lab Network", text: "A firewall between a LAN and a DMZ, on one PC. Five phases: see what crosses the wire, a legacy port knock, fix the leaks, modern remote access, traffic shaping.", url: "/projects/netstate-lab-network/"}
+  - {kind: "Related story", title: "Running Sage without handing out admin", text: "An app that demanded local admin, students who couldn't have it. I monitored exactly what it needed and granted only that by Group Policy.", url: "/stories/sage/"}
+  - {kind: "Portfolio", title: "Back to what I take on", text: "Six services, each with its own story like this one.", url: "/#services"}
 ---
-<h2>The situation</h2>
-<p>The students in the Information Systems Specialist program knew the book, but not how technology actually behaves in the real world. So on my own evenings I built a three-lab progression that had them build a network, connect it to others, and then watch it work.</p>
-<h2>What I did</h2>
-<h3>Lab 1: build a network</h3>
-<p>The first lab was the same for every group: a small network of three machines, one running Windows Server as a domain controller and two as clients, with a router in front standing in as their internet connection. With three groups that meant three separate networks, each with its own domain controller and two clients, so everyone had somewhere to practice logins and test policy. Each network ran on its own subnet, so later, when they connected, it was always clear which traffic belonged to which group.</p>
-<h3>Lab 2: connect the networks</h3>
-<p>The second lab opened those networks up to each other. Each group had to offer a service to the "public" side, the other groups' networks, and to do it they had to collaborate: agree on IP addresses and tell each other exactly which ports and resources to open. One group ran DNS, one ran a web service, one hosted a VPN. Then everyone verified and established a basic connection to each service. Suddenly it wasn't a toy, it was several real networks that had to interoperate.</p>
-<h3>Lab 3: watch the traffic</h3>
-<p>The third lab put Wireshark and nmap in their hands and had them watch their own traffic. The web group captured web traffic and watched their page get delivered. The DNS group saw the lookups come in. The VPN group watched their traffic go by encrypted, and could see plainly how it differed from the web traffic in the clear. To finish, all three groups shared what they'd found with the others, so each one understood not just its own piece but how the whole thing fit together.</p>
-<h2>The result</h2>
-<p>It was never an official part of the curriculum, so I couldn't put a grade on it, but every piece was aimed at the exam questions they'd face, and it gave them a hands-on way in, for the exam and for the real world.</p>
+<section>
+<p class="sec-label">// 01 the situation</p>
+<h2>They knew the book, not the network</h2>
+<p class="lead">The students in the Information Systems Specialist program knew the book, but not how technology actually behaves in the real world.</p>
+<p>So on my own evenings I built a three-lab progression that had them build a network, connect it to others, and then watch it work.</p>
+</section>
+<section>
+<p class="sec-label">// 02 what I did</p>
+<h2>Three labs, each one building on the last</h2>
+<ol class="parts">
+<li>
+<div class="part-h">
+<span class="n">1</span><h3>Lab 1: build a network</h3>
+</div>
+<p>The first lab was the same for every group: a small network of three machines, one running Windows Server as a domain controller and two as clients, with a router in front standing in as their internet connection.</p>
+<p>With three groups that meant three separate networks, each with its own domain controller and two clients, so everyone had somewhere to practice logins and test policy. Each network ran on its own subnet, so later, when they connected, it was always clear which traffic belonged to which group.</p>
+</li>
+<li>
+<div class="part-h">
+<span class="n">2</span><h3>Lab 2: connect the networks</h3>
+</div>
+<p>The second lab opened those networks up to each other. Each group had to offer a service to the "public" side, the other groups' networks, and to do it they had to collaborate: agree on IP addresses and tell each other exactly which ports and resources to open.</p>
+<p>One group ran DNS, one ran a web service, one hosted a VPN. Then everyone verified and established a basic connection to each service. Suddenly it wasn't a toy, it was several real networks that had to interoperate.</p>
+</li>
+<li>
+<div class="part-h">
+<span class="n">3</span><h3>Lab 3: watch the traffic</h3>
+</div>
+<p>The third lab put Wireshark and nmap in their hands and had them watch their own traffic. The web group captured web traffic and watched their page get delivered. The DNS group saw the lookups come in. The VPN group watched their traffic go by encrypted, and could see plainly how it differed from the web traffic in the clear.</p>
+<p>To finish, all three groups shared what they'd found with the others, so each one understood not just its own piece but how the whole thing fit together.</p>
+</li>
+</ol>
+</section>
+<section>
+<p class="sec-label">// 03 the result</p>
+<h2>A hands-on way in</h2>
+<p class="lead">It was never an official part of the curriculum, so I couldn't put a grade on it, but every piece was aimed at the exam questions they'd face, and it gave them a hands-on way in, for the exam and for the real world.</p>
+</section>

@@ -30,7 +30,7 @@
 
   *{box-sizing:border-box;}
   html{scroll-behavior:smooth;}
-  #creds,#index,#why,#certs,#skills,#work,#documents,#layers,#beyond,#contact{scroll-margin-top:64px;}
+  #creds,#index,#why,#certs,#skills,#work,#documents,#layers,#beyond,#contact,#services,#how,#projects,#timeline,#netstate{scroll-margin-top:64px;}
   body{
     margin:0; background-color:var(--bg);
     background-image:
@@ -130,7 +130,7 @@
   .term-body .p{color:var(--term-green); font-weight:600;}
   .term-body .o{color:var(--term-ink);}
   .term-body .k{color:#5bc0c7;}
-  .term-body .kv{display:block; padding-left:7ch; text-indent:-7ch;}
+  .term-body .kv{display:block; padding-left:10ch; text-indent:-10ch;}
   .term-body a.tlink{color:#5bc0c7; text-decoration:none; border-bottom:1px dashed rgba(91,192,199,.45);}
   .term-body a.tlink:hover{color:var(--term-green); border-bottom-color:var(--term-green);}
   .term-body .t-art{display:block; color:var(--term-green); white-space:pre; overflow-x:auto;
@@ -662,3 +662,104 @@
   .lab-phase-meta{font-size:.72rem; letter-spacing:.04em; color:var(--ink-soft); white-space:nowrap;}
   .lab-phase-desc{margin:0; padding:12px 16px 14px; color:var(--ink-soft); line-height:1.55;}
   @media (max-width:560px){ a.lab-phase-head{padding:12px;} .lab-phase-desc{padding:10px 12px 12px;} }
+
+  /* ===== v2.4: services home page + rebuilt stories ===== */
+  /* hero sub-headline */
+  .hero-sub{margin:-8px 0 0; color:var(--ink-soft); font-size:1.08rem; line-height:1.6; max-width:78ch;}
+
+  /* service and project cards (reuse .feat grid) */
+  .feat .card{display:flex; flex-direction:column; text-decoration:none; color:inherit; background:var(--panel);
+    border:1px solid var(--line); border-radius:12px; padding:22px;}
+  .card-svc .where{color:var(--amber); text-transform:uppercase; letter-spacing:.08em; font-size:.72rem;}
+  .feat .go-note{margin-top:auto; align-self:flex-start; font-size:.8rem; color:var(--ink-soft); padding:6px 0;}
+
+  /* discovery to handover: five accordions, closed by default */
+  .steps-acc{display:grid; gap:8px;}
+  .step > summary{padding:13px 16px; font-size:.95rem;}
+  .step .ly{min-width:26px; font-weight:600;}
+  .step .nm{font-weight:600;}
+  .step-body{padding:14px 16px 12px 54px; border-top:1px solid var(--line);}
+  .step-body > p{margin:0 0 10px; color:var(--ink); max-width:78ch;}
+  .step-body .step-k{color:var(--amber); font-size:.72rem; letter-spacing:.08em; text-transform:uppercase; margin:14px 0 6px;}
+  .step-body ul{margin:0; padding-left:18px; display:grid; gap:7px; color:var(--ink-soft); font-size:.95rem; max-width:82ch;}
+  .step-body a{white-space:nowrap;}
+  @media (max-width:640px){ .step-body{padding-left:16px;} .step .ds{display:none;} }
+
+  /* where-to-go tiles under the hero */
+  .index-grid.index-4{grid-template-columns:repeat(4,1fr); gap:10px; margin-top:2px;}
+  @media (max-width:860px){ .index-grid.index-4{grid-template-columns:repeat(2,1fr);} }
+  .index-4 .idx{min-height:0; padding:12px 14px 13px;}
+  .index-4 .idx-t{font-size:.9rem;}
+  .index-4 .idx-d{font-size:.78rem; margin-top:6px;}
+
+  /* compact service cards: heading, one line, link */
+  .feat-compact .card{padding:18px 20px;}
+  .feat-compact .card p:not(.where){margin:0 0 14px;}
+
+  /* link row under a section */
+  .more-links{display:flex; flex-wrap:wrap; gap:10px 26px; margin:18px 0 0;}
+  .tl-certs{color:var(--amber); font-size:.72rem; letter-spacing:.08em; text-transform:uppercase; margin:22px 0 10px;}
+  .creds-keys.tl-keys{justify-content:flex-start;}
+  .about p{max-width:78ch;}
+
+  /* experience timeline */
+  .tl{list-style:none; margin:0; padding:0;}
+  .tl > li{display:flex; flex-wrap:wrap; gap:4px 24px; padding:13px 0; border-top:1px solid var(--line);}
+  .tl > li:last-child{border-bottom:1px solid var(--line);}
+  .tl-y{color:var(--accent); font-size:.86rem; min-width:118px; padding-top:3px;}
+  .tl > li > div{flex:1 1 420px; min-width:0;}
+  .tl h3{margin:0; font-size:1.02rem; font-weight:600;}
+  .tl p{margin:2px 0 0; color:var(--ink-soft); font-size:.95rem;}
+
+  /* skills: last odd group spans the grid */
+  .skill-grid .skill-wide{grid-column:1 / -1;}
+
+  /* contact pitch */
+  .bizbody .card-pitch{font-family:'IBM Plex Sans',system-ui,sans-serif; color:var(--term-ink); font-size:1rem; line-height:1.6; margin:14px 0 0; max-width:64ch;}
+  .bizbody .card-pitch b{color:#fff; font-weight:600;}
+
+  /* story: at-a-glance terminal */
+  .glance{margin:0 0 8px; box-shadow:none;}
+  .glance-rows{margin:10px 0; display:grid; gap:5px;}
+  .glance-rows > div{display:flex; flex-wrap:wrap; gap:2px 16px;}
+  .glance-rows dt{color:#5bc0c7; min-width:9ch;}
+  .glance-rows dd{margin:0; color:var(--term-ink); flex:1 1 30ch; min-width:0;}
+
+  /* story: rebuilt body (numbered sections, part cards, flow strips) */
+  .story-body.sv2{max-width:none;}
+  .story-body.sv2 section{padding:30px 0 14px; margin-top:22px;}
+  .story-body.sv2 .sec-label{font-size:.82rem; margin:0 0 6px;}
+  .story-body.sv2 h2{font-family:'IBM Plex Sans',system-ui,sans-serif; font-size:clamp(1.2rem,2.6vw,1.5rem);
+    letter-spacing:0; text-transform:none; color:var(--ink); font-weight:600; margin:0 0 12px;}
+  .story-body.sv2 p{color:var(--ink-soft); max-width:78ch; margin:0 0 12px;}
+  .story-body.sv2 p.lead{color:var(--ink);}
+  .story-body.sv2 p.sec-label{color:var(--accent); max-width:none;}
+  .parts{list-style:none; margin:16px 0 0; padding:0; display:grid; gap:12px;}
+  .parts > li{background:var(--panel-2); border:1px solid var(--line); border-radius:12px; padding:18px 20px 8px;}
+  .part-h{display:flex; align-items:baseline; gap:14px; margin:0 0 8px;}
+  .part-h .n{font-family:'IBM Plex Mono',monospace; color:var(--accent); font-weight:600; font-size:1.3rem;}
+  .story-body.sv2 .part-h h3{margin:0; font-size:1.12rem;}
+  .flow{list-style:none; margin:4px 0 14px; padding:0; display:flex; flex-wrap:wrap; align-items:center; gap:8px 10px;
+    font-family:'IBM Plex Mono',monospace; font-size:.84rem;}
+  .flow > li, .flow .step{color:var(--accent-ink); background:var(--accent-soft);
+    border:1px solid color-mix(in srgb,var(--accent) 45%,var(--line)); border-radius:5px; padding:7px 12px;}
+  .flow > li.arrow, .flow .arrow{color:var(--ink-soft); background:none; border:none; padding:0;}
+  .flow.tenants{align-items:stretch;}
+  .flow > li.tenant{background:none; border:1px dashed var(--rule); border-radius:10px; padding:10px 12px 12px;
+    display:flex; flex-direction:column; gap:8px;}
+  .flow.tenants > li.arrow{display:flex; align-items:flex-end; padding-bottom:20px;}
+  .flow .k{color:var(--amber); font-size:.72rem; letter-spacing:.08em; text-transform:uppercase;}
+  .flow .flow-in{display:flex; flex-wrap:wrap; align-items:center; gap:8px 10px;}
+  .cards2{display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:14px; margin:16px 0 10px;}
+  .cards2 > div{background:var(--panel); border:1px solid var(--line); border-radius:12px; padding:18px 20px 8px;}
+  .story-body.sv2 .cards2 .k{font-family:'IBM Plex Mono',monospace; color:var(--amber); font-size:.72rem;
+    letter-spacing:.08em; text-transform:uppercase; margin:0 0 6px;}
+  .story-body.sv2 .cards2 h3{margin:0 0 6px; font-size:1.05rem;}
+  .related{margin-top:34px;}
+  .related .sec-label{font-size:.82rem; margin:0 0 12px;}
+  .related .feat .card{padding:18px 20px;}
+  .related .feat h3{font-size:1.02rem;}
+  .related .feat p:last-child{margin-bottom:0;}
+  .related + .digdeeper{margin-top:22px;}
+  /* inside a taskbar window the column is narrow: stack the cards */
+  .xwin-body .feat{grid-template-columns:1fr;}

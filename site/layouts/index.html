@@ -4,7 +4,7 @@
 
   <!-- HERO -->
   <section class="hero" style="border-top:none;">
-    <div class="term" role="img" aria-label="Terminal running whoami.sh: jason.mcginn, IT Coordinator and Systems/Infrastructure Admin; 20+ years cable to cloud; secure, documented, built for the people who use it; stack Azure, Windows Server, Linux, Cisco, VMware, Hyper-V, Docker, SQL Server, PowerShell, Python, Bash; certs Azure Fundamentals (AZ-900), Dynamics 365 Finance and Operations Fundamentals, CompTIA A+ and NB Instructional Certification; status available for work.">
+    <div class="term" role="img" aria-label="Terminal running whoami.sh: Jason R. McGinn, IT Infrastructure, Cloud and Projects. Certifications: Azure Fundamentals (AZ-900), Dynamics 365 Finance and Operations Fundamentals, CompTIA A+ and NB Instructional Certification. Seeking: Technical Lead, IT Coordinator, Infrastructure and Projects. Plans: Discovery, Solution Design, Scopes and Estimates. Delivers: Infrastructure Management and Services, Migrations, Tools and Automation, Documentation and Training. Works in: Microsoft Server and Cloud, Linux, Virtualization, Networks, SQL and Data, Scripting. Secures: Identity and Access, Firewalls, Encryption, Backup and Recovery. Speaks: English and French. Status: available for work.">
       <div class="term-bar">
         <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
         {{ with site.GetPage "/projects/living-portfolio" }}<a class="term-title mono term-title-link" href="{{ .RelPermalink }}">// {{ .Title }}</a>{{ end }}
@@ -12,154 +12,196 @@
       <div class="term-body mono" id="termBody" aria-hidden="true"></div>
     </div>
     <h1 class="hero-headline">I make it work: <span class="sec">secure, and built around the people who use it.</span></h1>
+    <p class="hero-sub">Whether it's the tools you already have or something new, I make them intuitive to use: an easy workflow to follow, company policy and data integrity enforced, and the pain points removed.</p>
+    <nav class="index-grid index-4" aria-label="On this page">
+      <a class="idx" href="#services"><span class="idx-head"><span class="idx-n">01</span><span class="idx-t">what I take on</span></span><span class="idx-d">Six kinds of work, each with its own story</span></a>
+      <a class="idx" href="#how"><span class="idx-head"><span class="idx-n">02</span><span class="idx-t">discovery to handover</span></span><span class="idx-d">How I run a project, in five steps</span></a>
+      <a class="idx" href="#projects"><span class="idx-head"><span class="idx-n">03</span><span class="idx-t">example work</span></span><span class="idx-d">Builds you can open, read or run</span></a>
+      <a class="idx" href="#timeline"><span class="idx-head"><span class="idx-n">04</span><span class="idx-t">experience</span></span><span class="idx-d">Over twenty years, and the resume</span></a>
+    </nav>
   </section>
 
-  <!-- CREDENTIALS STRIP -->
-  <section id="creds" class="creds">
-    <span class="creds-label mono">certifications</span>
-    <div class="creds-keys">
+  <!-- WHAT I TAKE ON -->
+  <section id="services">
+    <p class="sec-label">// 01 what I take on</p>
+    <h2 class="sec-h">Six things I can take on for your team and your clients.</h2>
+    <p class="sec-sub">Each one is work I have already done, with the full story one link away.</p>
+    <div class="feat feat-compact">
+      <a class="card card-svc" href="/stories/qos/">
+        <p class="where mono">Technical discovery</p>
+        <h3>Find the real problem first</h3>
+        <p>Nothing obvious was wrong, so I watched the traffic until the cause showed itself.</p>
+        <span class="go mono">see the QoS fix &#8594;</span>
+      </a>
+      <a class="card card-svc" href="/stories/azure-foundations/">
+        <p class="where mono">Solution design</p>
+        <h3>A design the whole project stands on</h3>
+        <p>The infrastructure plan behind about a dozen Dynamics 365 projects.</p>
+        <span class="go mono">see the Azure foundations &#8594;</span>
+      </a>
+      <a class="card card-svc" href="#how">
+        <p class="where mono">Scopes and estimates</p>
+        <h3>Agreed before the work starts</h3>
+        <p>Hours estimated for each phase, and every change approved before it was done.</p>
+        <span class="go mono">see the five steps &#8594;</span>
+      </a>
+      <a class="card card-svc" href="/stories/server-refresh/">
+        <p class="where mono">Migrations and projects</p>
+        <h3>Cut over without taking people down</h3>
+        <p>A new host and a domain-controller cutover, with backups test-restored first.</p>
+        <span class="go mono">see the zero-downtime refresh &#8594;</span>
+      </a>
+      <a class="card card-svc" href="/stories/ransomware/">
+        <p class="where mono">Level 3 escalations</p>
+        <h3>Where the hard cases end up</h3>
+        <p>A client's files encrypted at 8&nbsp;a.m., recovered the same day, and no ransom paid.</p>
+        <span class="go mono">see the ransomware recovery &#8594;</span>
+      </a>
+      <a class="card card-svc" href="/stories/config-docs/">
+        <p class="where mono">Process, templates and training</p>
+        <h3>Standards the next technician can follow</h3>
+        <p>Handover documentation generated from the build log.</p>
+        <span class="go mono">see the handover documentation &#8594;</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- DISCOVERY TO HANDOVER -->
+  <section id="how">
+    <p class="sec-label">// 02 discovery to handover</p>
+    <h2 class="sec-h">Every project starts with a conversation.</h2>
+    <p class="sec-sub">Five steps carry that conversation through to a finished, documented solution. Open any step to see what it means and where I've done it.</p>
+    <div class="steps-acc">
+      <details class="layer step">
+        <summary><span class="ly mono">01</span><span class="nm">The conversation</span><span class="ds">- the people who do the work, and what gets in their way</span><span class="exp mono">&#9656;</span></summary>
+        <div class="step-body">
+          <p>I start with the people who do the work: where technology is getting in their way, the tools they use today, and who uses them.</p>
+          <p class="step-k mono">where I've done it</p>
+          <ul>
+            <li>Thinkmax: discovery through each client's technical leads, hands-on access and their own documentation, for about a dozen Dynamics 365 projects.</li>
+            <li>A business couldn't reach its own resources and nothing obvious was wrong, so I watched the traffic until the cause showed itself. <a href="/stories/qos/">The QoS fix →</a></li>
+            <li>A teacher was logging a class of twenty-one five-year-olds in by hand, every session. I worked it end to end before proposing anything. <a href="/documents/kindergarten/">The proposal →</a></li>
+          </ul>
+        </div>
+      </details>
+      <details class="layer step">
+        <summary><span class="ly mono">02</span><span class="nm">Discovery and design</span><span class="ds">- each pain point followed to its source</span><span class="exp mono">&#9656;</span></summary>
+        <div class="step-body">
+          <p>I follow each pain point to its source, until there is a clear path to success. Possible solutions are compared, including keeping what already works.</p>
+          <p class="step-k mono">where I've done it</p>
+          <ul>
+            <li>Thinkmax: a migration and development infrastructure plan for each project, delivered to the project lead.</li>
+            <li>An app that demanded local admin, and students who couldn't have it. I monitored exactly what it needed and granted only that by Group Policy. <a href="/stories/sage/">The Sage lab →</a></li>
+            <li>Rather than just flag it, I proved our WEP wireless was crackable to make the case for replacing it. <a href="/stories/wep/">The WEP assessment →</a></li>
+            <li>A site-to-site VPN on a Cisco router, built and tested offline before it went live. <a href="/stories/vpn-montreal/">The VPN build →</a></li>
+          </ul>
+        </div>
+      </details>
+      <details class="layer step">
+        <summary><span class="ly mono">03</span><span class="nm">A clear scope and estimate</span><span class="ds">- written down before any build begins</span><span class="exp mono">&#9656;</span></summary>
+        <div class="step-body">
+          <p>Before any build begins, it is written down: what will be delivered, what is not included, the schedule, and the hours for each part. Any change asked for later is estimated and agreed before it is done.</p>
+          <p class="step-k mono">where I've done it</p>
+          <ul>
+            <li>Thinkmax: hours estimated for each component, and released by the project lead as each phase started.</li>
+            <li>New or unseen needs got their own estimate and approval, and the work stayed close to the approved hours.</li>
+            <li>The Controller needed deeper reporting, and outside help ran about $300 an hour. I made the case to build it in-house with PHP and SQL. <a href="/stories/reporting/">The reporting build →</a></li>
+          </ul>
+        </div>
+      </details>
+      <details class="layer step">
+        <summary><span class="ly mono">04</span><span class="nm">Build and deploy</span><span class="ds">- built and tested before it reaches people</span><span class="exp mono">&#9656;</span></summary>
+        <div class="step-body">
+          <p>The solution is built and tested before it reaches people. Backups are proven before anything old is retired, and each person and system gets only the access it needs.</p>
+          <p class="step-k mono">where I've done it</p>
+          <ul>
+            <li>A new ESXi host, RAID 10, fresh VMs, a domain-controller cutover by promote and demote, and backups test-restored before anything old was retired. <a href="/stories/server-refresh/">The server refresh →</a></li>
+            <li>Development, Test, QA, Pre-Production and Production environments on Azure, with Conditional Access limiting each group to what it needed. <a href="/stories/azure-foundations/">The Azure foundations →</a></li>
+            <li>An on-premises Exchange to Exchange Online migration for a managed services client.</li>
+            <li>The network side of a municipal VoIP rollout: a dedicated voice VLAN, WatchGuard rules, and a fault found in the logs. <a href="/stories/voip/">The VoIP rollout →</a></li>
+          </ul>
+        </div>
+      </details>
+      <details class="layer step">
+        <summary><span class="ly mono">05</span><span class="nm">Handover</span><span class="ds">- documentation and training, always included</span><span class="exp mono">&#9656;</span></summary>
+        <div class="step-body">
+          <p>Documentation and training are always included. The people who use it, and the technicians who support it, get something they can follow.</p>
+          <p class="step-k mono">where I've done it</p>
+          <ul>
+            <li>Handover documentation produced from the build log: a Word template filled from an Excel sheet I completed as each decision was made. <a href="/stories/config-docs/">The handover documentation →</a></li>
+            <li>A three-lab progression I built on my own evenings, so students learned networking by building it. <a href="/stories/iss-labs/">The teaching labs →</a></li>
+            <li>This site's own process is written down and public: the local loop, the build check, versioned releases and rollback. <a href="/documents/site-development-process/">The development process →</a></li>
+          </ul>
+        </div>
+      </details>
+    </div>
+  </section>
+
+  <!-- EXAMPLE WORK -->
+  <section id="projects">
+    <div class="sec-head">
+      <div>
+        <p class="sec-label">// 03 example work</p>
+        <h2 class="sec-h">The approach, seen in practice.</h2>
+      </div>
+    </div>
+    <div class="feat">
+      <a class="card card-svc" href="/projects/netstate-lab-network/">
+        <p class="where mono">Network security &middot; training lab</p>
+        <h3>The NetState Lab Network</h3>
+        <p>A firewall between a LAN and a DMZ, on one PC. Five phases: see what crosses the wire, a legacy port knock, fix the leaks, modern remote access, traffic shaping. It comes with a written guide, so a technician can learn from it.</p>
+        <span class="go mono">open the lab &#8594;</span>
+      </a>
+      <a class="card card-svc" href="/projects/living-portfolio/">
+        <p class="where mono">Release process &middot; live</p>
+        <h3>The Living Portfolio</h3>
+        <p>This site, run as a project. Every change passes a build check, only a versioned release goes live, each image is scanned, and any release can be rolled back.</p>
+        <span class="go mono">see how it is built &#8594;</span>
+      </a>
+      <div class="card card-svc">
+        <p class="where mono">Field service &middot; own tool</p>
+        <h3>Field Service Ops</h3>
+        <p>One app for a field technician's day: truck stock, cycle counts, tickets and shipping. It turns email notifications into tickets using pattern rules, and indexes service manuals to keep the parts kit current.</p>
+        <span class="go-note mono">ask for a walk-through</span>
+      </div>
+    </div>
+    <p class="more-links mono"><a class="see-all" href="/projects/">all projects &#8594;</a><a class="see-all" href="/library/#documents">all documents &#8594;</a><a class="see-all" href="/library/#stories">all stories &#8594;</a><a class="see-all" href="/library/#layers">everything by OSI layer &#8594;</a></p>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="timeline">
+    <div class="sec-head">
+      <div>
+        <p class="sec-label">// 04 experience</p>
+        <h2 class="sec-h">Over twenty years, one environment at a time.</h2>
+      </div>
+      <a class="see-all mono" href="/resume.pdf" download="Jason-McGinn-Resume.pdf">download the resume (pdf) &#8594;</a>
+    </div>
+    <ol class="tl">
+      <li><span class="tl-y mono">2024 to now</span><div><h3>Technical Service Representative, Level II &middot; Xerox</h3><p>Certified on 114 printer models. Built my own inventory and ticketing tool for the job.</p></div></li>
+      <li><span class="tl-y mono">2021 to 2023</span><div><h3>Infrastructure Consultant &middot; Thinkmax</h3><p>Planned and built the Azure infrastructure for about a dozen Dynamics 365 projects: discovery, plans, estimates, pipelines and handover.</p></div></li>
+      <li><span class="tl-y mono">2017 to 2021</span><div><h3>IT Consultant &middot; Vision33 / Absolute Computer Solutions</h3><p>Managed IT for dozens of clients in ConnectWise: an Exchange Online migration, a ransomware recovery with Veeam, an ESXi bare metal refresh, and daily work across Active Directory, Group Policy, M365, Cisco and WatchGuard.</p></div></li>
+      <li><span class="tl-y mono">2014 to 2017</span><div><h3>Network Administrator &middot; Imvescor</h3><p>Ran the network for a Moncton office of over 30 users, coordinating with head office in Montreal.</p></div></li>
+      <li><span class="tl-y mono">2012 to 2014</span><div><h3>Business Analyst &middot; Blue Cross</h3><p>SQL across large medical databases, turned into reports for decision makers.</p></div></li>
+      <li><span class="tl-y mono">2010 to 2012</span><div><h3>Network Administrator &middot; Maritime Door &amp; Window</h3><p>Infrastructure and support for over 20 employees. Deployed SolarWinds, and built a reporting tool on the Syspro ERP.</p></div></li>
+      <li><span class="tl-y mono">2008 to 2010</span><div><h3>Instructor and Network Administrator &middot; Eastern College</h3><p>Taught the Information Systems Specialist program to over 100 students while running the school's network.</p></div></li>
+      <li><span class="tl-y mono">2003 to 2008</span><div><h3>Earlier &middot; Kroll, and Convergys for Microsoft</h3><p>Database and systems support for pharmacy management software, and the Level III escalation desk for Windows XP.</p></div></li>
+    </ol>
+    <p class="tl-certs mono">certifications</p>
+    <div class="creds-keys tl-keys">
       <span class="creds-k mono">Microsoft Azure Fundamentals (AZ-900)</span>
       <span class="creds-k mono">Dynamics 365 Finance &amp; Operations Fundamentals</span>
       <span class="creds-k mono">CompTIA A+</span>
+      <span class="creds-k mono">Microsoft Office 2007 Master</span>
+      <span class="creds-k mono">Instructional Certification, NB</span>
     </div>
-    <p class="creds-tech mono">Azure &middot; Windows Server &middot; Linux &middot; Cisco &middot; VMware &middot; Hyper-V &middot; Docker &middot; SQL Server &middot; PowerShell &middot; Python &middot; Bash</p>
-  </section>
-
-  <!-- HOW I WORK -->
-  <section id="why">
-    <p class="sec-label">// 01 how I work</p>
-    <h2 class="sec-h">One approach, applied to very different problems.</h2>
-    <p class="sec-sub" style="max-width:none;">Twenty-plus years across networking, systems, cloud and automation. The problems change; the core way I work them doesn't.<br>These five principles are that approach, in the order I apply them, each one shown in real work.</p>
-    <ol class="principles">
-      <li><span class="pr-h">Know it to the core.</span><span class="pr-d">I take neglected systems apart until I know them cold, then rebuild them so a fault traces cleanly from the wall jack to the switch port. Untangling the mess is how I come to trust it.</span><a class="pr-link" href="/stories/rack-rebuilds/">see it in the rack rebuilds &#8594;</a></li>
-      <li><span class="pr-h">Secure it by default.</span><span class="pr-d">I find exactly what a system needs to run, then grant only that and lock the rest down. Least privilege, enforced by policy rather than trust.</span><a class="pr-link" href="/stories/sage/">see it in the Sage lab &#8594;</a></li>
-      <li><span class="pr-h">Deliver it methodically.</span><span class="pr-d">Diagnose, document, propose, verify, in that order. I work a problem end to end and write it up, so the fix is something anyone can check and repeat.</span><a class="pr-link" href="/documents/kindergarten/">see it in the kindergarten proposal &#8594;</a></li>
-      <li><span class="pr-h">Build it around people.</span><span class="pr-d">I don't just run technology; I shape it so it works for people without them having to think about it. Nothing beats watching someone get time back every time a solution I rolled out kicks in.</span><a class="pr-link" href="/stories/qos/">see it in the QoS fix &#8594;</a></li>
-      <li><span class="pr-h">Build the tools that build the next ones.</span><span class="pr-d">Tools exist to move you toward a goal, and getting there usually takes tools working with other tools. I like building the one that makes the next one easier.</span><a class="pr-link" href="/stories/provisioning/">see it in the account provisioning &#8594;</a></li>
-    </ol>
-  </section>
-
-
-  <!-- SKILLS -->
-  <section id="skills">
-    <div class="skills-head">
-      <p class="sec-label">// 02 skills</p>
-      <div class="legend mono"><span class="chip prod" style="pointer-events:none;">teal</span> production <span class="chip" style="pointer-events:none;">grey</span> learning / lighter</div>
-    </div>
-    <div class="skill-grid">
-    <div class="skill-group">
-      <h4>Cloud &amp; Identity</h4>
-      <div class="chips">
-        <span class="chip prod">Azure (VNets, NSGs, IAM)</span><span class="chip prod">Entra ID</span>
-        <span class="chip prod">Conditional Access</span><span class="chip prod">AD &amp; Group Policy</span>
-        <span class="chip prod">M365 / Exchange Online</span><span class="chip prod">Azure Data (Lake, SQL, Blob)</span>
-        <span class="chip">Intune</span><span class="chip">Defender for Endpoint</span>
-      </div>
-    </div>
-    <div class="skill-group">
-      <h4>Network &amp; Security</h4>
-      <div class="chips">
-        <span class="chip prod">Routing / switching / VLANs</span><span class="chip prod">Firewalls (WatchGuard, pfSense, iptables)</span>
-        <span class="chip prod">VPN · IPsec</span><span class="chip prod">DNS · DHCP</span>
-        <span class="chip prod">TLS / certificates</span><span class="chip prod">Monitoring (SNMP, SolarWinds, Snort)</span>
-        <span class="chip prod">Linux hardening (SELinux, Fail2Ban)</span><span class="chip prod">Incident response</span>
-        <span class="chip prod">Cisco IOS</span><span class="chip prod">Wi-Fi / 802.11</span>
-      </div>
-    </div>
-    <div class="skill-group">
-      <h4>Platforms &amp; Virtualization</h4>
-      <div class="chips">
-        <span class="chip prod">VMware / ESXi</span><span class="chip prod">Hyper-V</span>
-        <span class="chip prod">Citrix</span><span class="chip prod">Windows Server · Linux</span>
-        <span class="chip prod">Backup &amp; DR (Veeam)</span><span class="chip">Docker · Kubernetes</span>
-      </div>
-    </div>
-    <div class="skill-group">
-      <h4>Data &amp; Reporting</h4>
-      <div class="chips">
-        <span class="chip prod">SQL Server / T-SQL</span><span class="chip prod">ERP (Syspro, D365)</span>
-        <span class="chip prod">Reporting (PHP, Crystal Reports)</span><span class="chip prod">VBA / Excel</span>
-        <span class="chip">Power BI</span>
-      </div>
-    </div>
-    <div class="skill-group">
-      <h4>Automation &amp; AI</h4>
-      <div class="chips">
-        <span class="chip prod">PowerShell</span><span class="chip prod">Bash</span><span class="chip prod">Python</span>
-        <span class="chip prod">Azure CLI</span><span class="chip prod">ARM</span><span class="chip prod">Git / GitHub Actions / CI-CD</span>
-        <span class="chip">Ollama · n8n · local LLMs</span><span class="chip">Claude API toolkit</span><span class="chip">REST APIs</span><span class="chip">JSON / YAML</span>
-      </div>
-    </div>
-    <div class="skill-group">
-      <h4>Hardware &amp; IoT</h4>
-      <div class="chips">
-        <span class="chip">ESP32 / C++</span><span class="chip">Arduino / ESP-IDF</span>
-        <span class="chip">Sensors &amp; circuits</span><span class="chip">Microcontroller web UIs</span>
-        <span class="chip">MQTT</span>
-      </div>
-    </div>
-    </div>
-  </section>
-
-  <!-- LAYER MAP -->
-  {{ partial "accordion.html" . }}
-
-  <!-- FEATURED DOCUMENTS -->
-  <section id="documents">
-    <div class="sec-head">
-      <div>
-        <p class="sec-label">// 04 documents</p>
-        <h2 class="sec-h">Written to be acted on.</h2>
-      </div>
-      <a class="see-all mono" href="/library/#documents">all documents &#8594;</a>
-    </div>
-    <div class="feat feat-docs">
-      {{ range first 3 (sort (where (where site.RegularPages "Section" "documents") "Params.featured" true) "Params.featorder") }}
-      <a class="card card-doc" href="{{ .RelPermalink }}">
-        <p class="where mono">{{ range first 1 .Params.layers }}{{ range where site.Data.layers "key" . }}{{ .name | safeHTML }}{{ end }}{{ end }}</p>
-        <h3>{{ .Title }}</h3>
-        <p>{{ .Params.summary }}</p>
-        <span class="go mono">read the document &#8594;</span>
-      </a>
-      {{ end }}
-    </div>
-  </section>
-
-  <!-- FEATURED STORIES -->
-  <section id="work">
-    <div class="sec-head">
-      <div>
-        <p class="sec-label">// 05 featured stories</p>
-        <h2 class="sec-h">Three times I found a way.</h2>
-      </div>
-      <a class="see-all mono" href="/library/#stories">all stories &#8594;</a>
-    </div>
-    <div class="feat">
-      {{ range first 3 (sort (where (where site.RegularPages "Section" "stories") "Params.featured" true) "Params.featorder") }}
-      <a class="card card-story" href="{{ .RelPermalink }}">
-        <p class="where mono">{{ range first 1 .Params.layers }}{{ range where site.Data.layers "key" . }}{{ .name | safeHTML }}{{ end }}{{ end }}</p>
-        <h3>{{ .Title }}</h3>
-        <p>{{ .Params.summary }}</p>
-        <span class="go mono">read the story &#8594;</span>
-      </a>
-      {{ end }}
-    </div>
-  </section>
-
-  <!-- BEYOND -->
-  <section id="beyond" class="beyond">
-    <p class="sec-label">// 06 beyond the keyboard</p>
-    <h2 class="sec-h">A maker, on and off the clock.</h2>
-    <p>I'm a maker at heart. I like building things that have a real use and purpose, with a design that is both elegant and functional. When I'm away from the keyboard I'm usually in the woods, or out in the shop making something with my hands.</p>
-    <p>A lot of that happens at the CNC, where I enjoy the design side as much as the carving. I designed my own cribbage board and have sold dozens of them. I also turn and carve bowls, pens, and plenty of other woodworking projects, tons of them over the years. And I love dogs.</p>
-    <p class="q">It's the same instinct that shapes how I build systems. I want what I make to last, and to actually get used.</p>
-    <p style="margin-top:18px;"><a class="btn" href="/woodwork/">see some of my work</a></p>
+    <p class="more-links mono"><a class="see-all" href="/how-i-work/">how I work, and the full skills list &#8594;</a><a class="see-all" href="/about/">about me &#8594;</a></p>
   </section>
 
   <!-- CONTACT -->
   <section id="contact">
-    <p class="sec-label">// 07 contact</p>
-    <div class="term" role="group" aria-label="Contact Jason R. McGinn: email mcginn@netstatedata.ca, download resume, LinkedIn, GitHub. Open to IT Coordinator and Systems or Infrastructure roles in the Moncton area or remote.">
+    <p class="sec-label">// 05 contact</p>
+    <div class="term" role="group" aria-label="Contact Jason R. McGinn: email JasonRMcGinn@proton.me, download resume, LinkedIn, GitHub. Open to Technical Lead, IT Coordinator and infrastructure roles in the Moncton area or remote.">
       <div class="term-bar">
         <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
         <span class="term-title mono" style="font-weight:700; font-size:1.02rem; color:var(--term-ink);">// reach me</span>
@@ -173,16 +215,18 @@
 
 <span class="bc-b" aria-hidden="true">╔══════════════════════════════════════════════╗</span>
 <span class="bc-b" aria-hidden="true">║</span> <span class="bc-name">Jason R. McGinn</span>                              <span class="bc-b" aria-hidden="true">║</span>
-<span class="bc-b" aria-hidden="true">║</span> <span class="bc-role">IT Coordinator · Systems &amp; Infrastructure</span>    <span class="bc-b" aria-hidden="true">║</span>
+<span class="bc-b" aria-hidden="true">║</span> <span class="bc-role">IT Infrastructure, Cloud and Projects</span>        <span class="bc-b" aria-hidden="true">║</span>
 <span class="bc-b" aria-hidden="true">║</span>                                              <span class="bc-b" aria-hidden="true">║</span>
-<span class="bc-b" aria-hidden="true">║</span> <span class="bc-k">email     </span><a class="bc-v" id="email" href="mailto:mcginn@netstatedata.ca">mcginn@netstatedata.ca</a>             <span class="bc-b" aria-hidden="true">║</span>
+<span class="bc-b" aria-hidden="true">║</span> <span class="bc-k">email     </span><a class="bc-v" id="email" href="mailto:JasonRMcGinn@proton.me">JasonRMcGinn@proton.me</a>             <span class="bc-b" aria-hidden="true">║</span>
 <span class="bc-b" aria-hidden="true">║</span> <span class="bc-k">web       </span><a class="bc-v" id="" href="https://netstatedata.ca" target="_blank" rel="noopener">netstatedata.ca</a>                    <span class="bc-b" aria-hidden="true">║</span>
 <span class="bc-b" aria-hidden="true">║</span> <span class="bc-k">linkedin  </span><a class="bc-v" id="" href="https://www.linkedin.com/in/jason-mcginn-bb350711" target="_blank" rel="noopener">linkedin.com/in/jason-mcginn</a>       <span class="bc-b" aria-hidden="true">║</span>
 <span class="bc-b" aria-hidden="true">║</span> <span class="bc-k">github    </span><a class="bc-v" id="" href="https://github.com/jasonmcginn" target="_blank" rel="noopener">github.com/jasonmcginn</a>             <span class="bc-b" aria-hidden="true">║</span>
 <span class="bc-b" aria-hidden="true">╚══════════════════════════════════════════════╝</span></pre>
         <div class="o card-note"># open to roles in the Moncton area, or remote</div>
+        <p class="card-pitch"><b>It starts with a conversation.</b> I'd welcome the chance to talk about how you run projects, and what I could take on. If it's a fit, you'll know what the next step looks like. If it isn't, you'll hear that plainly.</p>
         <div class="card-actions">
-          <a class="btn primary btn-lg" href="/resume.pdf" download="Jason-McGinn-Resume.pdf">download resume (pdf)</a>
+          <a class="btn primary btn-lg" href="mailto:JasonRMcGinn@proton.me">start a conversation</a>
+          <a class="btn btn-lg" href="/resume.pdf" download="Jason-McGinn-Resume.pdf">download resume (pdf)</a>
           <button class="btn card-copy" id="copyBtn" type="button">copy email</button>
         </div>
         <div class="bizline"><span class="p">~/prod/portfolio$</span> <span class="caret"></span></div>

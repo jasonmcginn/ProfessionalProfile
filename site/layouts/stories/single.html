@@ -4,7 +4,37 @@
   {{ partial "typeline.html" . }}
   <h1>{{ .Title }}</h1>
   {{ with .Params.hook }}<p class="hook">{{ . | safeHTML }}</p>{{ end }}
-  <div class="story-body">{{ .Content }}</div>
+  {{ with .Params.glance }}
+  <div class="term glance">
+    <div class="term-bar">
+      <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
+      <span class="term-title mono">// at a glance</span>
+    </div>
+    <div class="term-body mono bizbody">
+      <div class="bizline"><span class="p">~/prod/portfolio/stories$</span> ./{{ $.File.ContentBaseName }}.sh --summary</div>
+      <dl class="glance-rows">
+        {{ range . }}<div><dt>{{ .k }}</dt><dd>{{ .v | safeHTML }}</dd></div>
+        {{ end }}
+      </dl>
+      <div class="bizline"><span class="p">~/prod/portfolio/stories$</span> <span class="caret" aria-hidden="true"></span></div>
+    </div>
+  </div>
+  {{ end }}
+  <div class="story-body{{ if .Params.glance }} sv2{{ end }}">{{ .Content }}</div>
+  {{ with .Params.related }}
+  <div class="related">
+    <p class="sec-label">// keep reading</p>
+    <div class="feat">
+      {{ range . }}
+      <a class="card card-svc" href="{{ .url }}">
+        <p class="where mono">{{ .kind }}</p>
+        <h3>{{ .title }}</h3>
+        <p>{{ .text | safeHTML }}</p>
+      </a>
+      {{ end }}
+    </div>
+  </div>
+  {{ end }}
   {{ partial "resources.html" . }}
 </div></div>
 {{ end }}

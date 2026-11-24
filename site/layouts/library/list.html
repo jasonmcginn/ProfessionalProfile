@@ -5,12 +5,14 @@
   <h1>Library</h1>
   <p class="hook">Everything on the site: the projects, and the stories, documents, scripts, and containers behind the layers.</p>
   <div class="doc-toc"><p class="toc-h">Jump to</p><ol>
+    <li><a href="#layers">By OSI layer</a></li>
     <li><a href="#projects">Projects</a></li>
     <li><a href="#stories">Stories</a></li>
     <li><a href="#documents">Documents</a></li>
     <li><a href="#scripts">Scripts</a></li>
     <li><a href="#containers">Containers</a></li>
   </ol></div>
+  {{ partial "accordion.html" . }}
   <div class="story-body">
     <div class="layers-bar"><button class="layers-toggle" id="libToggle" type="button" aria-expanded="true">collapse all</button></div>
     {{ $projects := (where site.RegularPages "Section" "projects").ByWeight }}
