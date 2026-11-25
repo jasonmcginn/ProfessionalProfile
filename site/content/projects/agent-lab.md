@@ -10,31 +10,31 @@ status: "planned"
 quiet: true
 visibility: "public"
 repo: ""
-builds_on: ["netstate-lab-network"]
+builds_on: []
 related: []
 weight: 20
 evidence:
   - {title: "The loop runs end to end", desc: "A seeded problem detected, rated, a fix proposed with its undo, checked against policy, and run by hand, with the audit trail that records it.", file: ""}
   - {title: "Read-only, proven", desc: "A watching agent tries to change something and is refused, showing its access is limited to watching, even when a log line tries to tell it to act.", file: ""}
-  - {title: "Ask it what happened", desc: "The local model answering a question from the live state of the network, with no data leaving the lab.", file: ""}
+  - {title: "Ask it what happened", desc: "The local model answering a question from the live state of the network, with no data leaving the system.", file: ""}
 phases:
-  - {name: "The loop", desc: "Detect, rate, propose a reversible fix, check it against policy, brief the decision, then a person decides and runs it by hand. Recorded tamper-evidently at every step.", status: "running in the homelab"}
+  - {name: "The loop", desc: "Detect, rate, propose a reversible fix, check it against policy, brief the decision, then a person decides and runs it by hand. Recorded tamper-evidently at every step.", status: "running"}
   - {name: "The agents", desc: "A starting set split by job: watch and read logs, correlate and rate, propose a fix with its undo, gate it against policy, log everything. A probing agent generates real traffic for the others to catch.", status: "wave 1 built"}
-  - {name: "The manager", desc: "A local AI model on top that you can ask what is going on, answering from the live state of the network. The model is swappable, and runs on my own hardware.", status: "built in the homelab"}
+  - {name: "The manager", desc: "A local AI model on top that you can ask what is going on, answering from the live state of the network. The model is swappable, and runs on my own hardware.", status: "built"}
   - {name: "Build, validate, deploy out", desc: "Use Core as a place to prove out services and rules (firewall, policy, runbooks) under the same watched, rated, recorded loop, then push the validated ones to a real network.", status: "planned"}
 pdf: ""
 links: []
 ---
 
-<!-- Built from the private NetState Core project (NetStateData Systems - Core). PUBLIC-SAFE DRAFT, for Jason to verify. Deliberately left out: internal addressing, container/host names, manifest versions, file paths, and operational specifics. Depth: homelab. Evidence not yet captured (file: "" placeholders). -->
+<!-- Built from the private NetState Core project (NetStateData Systems - Core). PUBLIC-SAFE DRAFT, for Jason to verify. Deliberately left out: internal addressing, container/host names, manifest versions, file paths, and operational specifics. Honest depth is kept in project context, not stated on the page. Evidence not yet captured (file: "" placeholders). -->
 
-<p class="tbd-note">[Draft from the NetState Core project. The system is built and running in my homelab; the write-up and the evidence below are still being captured.]</p>
+<p class="tbd-note">[Draft from the NetState Core project. The system is built and running; the write-up and the evidence below are still being captured.]</p>
 
 ## What this is
 
 NetState Core is a self-contained, offline self-healing network. It is a locked-down set of Docker containers that watch a managed network, detect problems, rate how serious they are, and propose fixes that can be undone. A person stays in the loop to decide and run each fix, and every step is recorded, so nothing is hidden.
 
-It runs entirely on my own hardware. No logs or network data leave it, which is what lets it sit in places normal cloud security tooling can't go: air-gapped labs, regulated environments, or a small network you want watched without sending anything out.
+It runs entirely on my own hardware. No logs or network data leave it, which is what lets it sit in places normal cloud security tooling can't go: air-gapped sites, regulated environments, or a small network you want watched without sending anything out.
 
 ## The loop
 
@@ -83,7 +83,7 @@ The same rule I use for people applies to agents: least privilege, documented, a
 
 ## Who it's for
 
-A homelab or small-business network guardian. A transparent, watched security gateway for a device or a small set of devices. Air-gapped and regulated environments where cloud tooling can't reach. Training and exercises for analysts. Change-safety and drift detection against a decided baseline. And, underneath all of it, a worked reference for building agentic systems that are safe by construction.
+A small-business network guardian. A transparent, watched security gateway for a device or a small set of devices. Air-gapped and regulated environments where cloud tooling can't reach. Training and exercises for analysts. Change-safety and drift detection against a decided baseline. And, underneath all of it, a worked reference for building agentic systems that are safe by construction.
 
 ## Planned
 
