@@ -12,7 +12,7 @@
 {{ partial "footer.html" . }}
 {{ partial "taskbar.html" . }}
 {{ partial "floater.html" . }}
-{{ $appv := md5 (os.ReadFile "static/js/app.js") }}
-<script src="{{ "js/app.js" | relURL }}?v={{ $appv }}" defer></script>
+{{ $appjs := resources.Get "js/app.js" | fingerprint }}
+<script src="{{ $appjs.RelPermalink }}" defer></script>
 </body>
 </html>
