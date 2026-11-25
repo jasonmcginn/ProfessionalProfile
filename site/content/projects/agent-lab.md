@@ -17,6 +17,7 @@ evidence:
   - {title: "The loop runs end to end", desc: "A seeded problem detected, rated, a fix proposed with its undo, checked against policy, and run by hand, with the audit trail that records it.", file: ""}
   - {title: "Read-only, proven", desc: "A watching agent tries to change something and is refused, showing its access is limited to watching, even when a log line tries to tell it to act.", file: ""}
   - {title: "Ask it what happened", desc: "The local model answering a question from the live state of the network, with no data leaving the system.", file: ""}
+  - {title: "The management console", desc: "The console at a decision: the incident, the proposed fix with its undo, the brief, and the Approve, Reject and Mark-run controls.", file: ""}
 phases:
   - {name: "The loop", desc: "Detect, rate, propose a reversible fix, check it against policy, brief the decision, then a person decides and runs it by hand. Recorded tamper-evidently at every step.", status: "running"}
   - {name: "The agents", desc: "A starting set split by job: watch and read logs, correlate and rate, propose a fix with its undo, gate it against policy, log everything. A probing agent generates real traffic for the others to catch.", status: "wave 1 built"}
@@ -84,6 +85,22 @@ The same rule I use for people applies to agents: least privilege, documented, a
 ## Who it's for
 
 A small-business network guardian. A transparent, watched security gateway for a device or a small set of devices. Air-gapped and regulated environments where cloud tooling can't reach. Training and exercises for analysts. Change-safety and drift detection against a decided baseline. And, underneath all of it, a worked reference for building agentic systems that are safe by construction.
+
+## The management interface
+
+One web console is the person's whole view of the system. It reads the live state and passes the person's decisions, and like every other part it never acts on a machine itself. It is served locally, behind a sign-in, and carries no external scripts or fonts, so it works with the system fully offline.
+
+<div class="cards2 c3">
+<div><p class="k">Live status</p>A snapshot of the system and every container's health, with open findings counted by severity. The panels refresh on their own.</div>
+<div><p class="k">Findings and incidents</p>What the agents have seen, correlated and rated, each one opening to the detail and the log lines behind it.</div>
+<div><p class="k">Approvals</p>A proposed fix shown with its undo and the policy verdict. Approve it, reject it, or mark it run. The status is read back from the audit log, not set by hand.</div>
+<div><p class="k">The brief</p>One plain-language brief per proposal at decision time: what happened, the fix, and whether policy cleared it.</div>
+<div><p class="k">Baseline and drift</p>Accept a decided baseline once, and from then on the console shows anything that has drifted from it.</div>
+<div><p class="k">Audit trail</p>The full hash-chained record of findings, decisions and runs. The console verifies the chain and flags any break.</div>
+<div><p class="k">Ask the manager</p>A chat panel to ask the local model what is going on. It answers from the live state with read-only tools, and can draft but never run a fix.</div>
+<div><p class="k">Sign-in and lockout</p>One account behind a salted password, signed sessions, and a short lockout after repeated failures. No part of it reaches the internet.</div>
+<div><p class="k">[planned] Egress and backups</p>A log of anything the system is ever allowed to send out, and backup health raised loud when a backup is missing.</div>
+</div>
 
 ## Planned
 
