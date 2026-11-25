@@ -4,7 +4,8 @@
   {{ partial "typeline.html" . }}
   <h1>{{ .Title }}</h1>
   {{ with .Params.hook }}<p class="hook">{{ . | safeHTML }}</p>{{ end }}
-  <div class="story-body">{{ .Content }}</div>
+  {{ partial "glance.html" . }}
+  <div class="story-body{{ if .Params.glance }} sv2{{ end }}">{{ .Content }}</div>
   {{ partial "resources.html" . }}
 </div></div>
 {{ end }}

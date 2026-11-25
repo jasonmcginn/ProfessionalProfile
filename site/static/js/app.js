@@ -77,7 +77,7 @@
     {t:'kv', k:'plans     ', x:'Discovery · Solution Design · Scopes and Estimates'},
     {t:'kv', k:'delivers  ', x:'Infrastructure Management and Services · Migrations · Tools and Automation · Documentation and Training'},
     {t:'kv', k:'works in  ', x:'Microsoft Server and Cloud · Linux · Virtualization · Networks · SQL and Data · Scripting'},
-    {t:'kv', k:'secures   ', x:'Identity and Access · Firewalls · Encryption · Backup and Recovery'},
+    {t:'kv', k:'secures   ', x:'Identity and Access · Firewalls · Encryption · Monitoring and Alerting · Auditing'},
     {t:'kv', k:'speaks    ', x:'English · French'},
     {t:'gap'},
     {t:'status', x:'available for work'},

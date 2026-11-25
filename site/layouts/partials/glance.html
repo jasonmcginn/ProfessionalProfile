@@ -1,0 +1,16 @@
+{{ with .Params.glance }}
+  <div class="term glance">
+    <div class="term-bar">
+      <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
+      <span class="term-title mono">// at a glance</span>
+    </div>
+    <div class="term-body mono bizbody">
+      <div class="bizline"><span class="p">~/prod/portfolio/{{ $.Section }}$</span> ./{{ $.File.ContentBaseName }}.sh --summary</div>
+      <dl class="glance-rows">
+        {{ range . }}<div><dt>{{ .k }}</dt><dd>{{ .v | safeHTML }}</dd></div>
+        {{ end }}
+      </dl>
+      <div class="bizline"><span class="p">~/prod/portfolio/{{ $.Section }}$</span> <span class="caret" aria-hidden="true"></span></div>
+    </div>
+  </div>
+  {{ end }}

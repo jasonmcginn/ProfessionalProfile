@@ -4,22 +4,7 @@
   {{ partial "typeline.html" . }}
   <h1>{{ .Title }}</h1>
   {{ with .Params.hook }}<p class="hook">{{ . | safeHTML }}</p>{{ end }}
-  {{ with .Params.glance }}
-  <div class="term glance">
-    <div class="term-bar">
-      <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
-      <span class="term-title mono">// at a glance</span>
-    </div>
-    <div class="term-body mono bizbody">
-      <div class="bizline"><span class="p">~/prod/portfolio/stories$</span> ./{{ $.File.ContentBaseName }}.sh --summary</div>
-      <dl class="glance-rows">
-        {{ range . }}<div><dt>{{ .k }}</dt><dd>{{ .v | safeHTML }}</dd></div>
-        {{ end }}
-      </dl>
-      <div class="bizline"><span class="p">~/prod/portfolio/stories$</span> <span class="caret" aria-hidden="true"></span></div>
-    </div>
-  </div>
-  {{ end }}
+  {{ partial "glance.html" . }}
   <div class="story-body{{ if .Params.glance }} sv2{{ end }}">{{ .Content }}</div>
   {{ with .Params.related }}
   <div class="related">
