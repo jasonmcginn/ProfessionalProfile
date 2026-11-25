@@ -5,7 +5,9 @@
   function toggle(){
     var cur=root.getAttribute('data-theme');
     if(!cur){ cur=window.matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light'; }
-    root.setAttribute('data-theme', cur==='dark'?'light':'dark');
+    var next=cur==='dark'?'light':'dark';
+    root.setAttribute('data-theme', next);
+    try{ localStorage.setItem('theme', next); }catch(e){}
   }
   document.querySelectorAll('.tt').forEach(function(b){ b.addEventListener('click', toggle); });
 })();
