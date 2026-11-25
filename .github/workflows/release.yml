@@ -64,16 +64,50 @@ jobs:
             --label org.opencontainers.image.revision="$GITHUB_SHA" \
             -t "$IMAGE:$TAG" -t "$IMAGE:latest" .
 
+      - name: Install Trivy
+        # The same installer, at the same commit, that the scan action below
+        # calls internally. Installed here so the database step can use it.
+        uses: aquasecurity/setup-trivy@3fb12ec12f41e471780db15c232d5dd185dcb514 # v0.2.6
+        with:
+          version: v0.76.0
+          cache: 'true'
+
+      - name: Download the vulnerability database (with retries)
+        # A dropped download of this database stopped release v2.4.0 twice,
+        # before the scan could even start. Try each official location in
+        # turn, for up to three rounds, and fail only if none of them works.
+        run: |
+          DB_DIR="$GITHUB_WORKSPACE/.cache/trivy"
+          for round in 1 2 3; do
+            for repo in mirror.gcr.io/aquasec/trivy-db:2 ghcr.io/aquasecurity/trivy-db:2; do
+              echo "Round $round: downloading the vulnerability database from $repo"
+              if trivy image --download-db-only --cache-dir "$DB_DIR" --db-repository "$repo"; then
+                echo "Database downloaded from $repo"
+                exit 0
+              fi
+              echo "Download from $repo failed"
+            done
+            sleep $((round * 20))
+          done
+          echo "Could not download the vulnerability database from any location"
+          exit 1
+
       - name: Scan image for vulnerabilities
         # Pinned to a commit SHA: trivy-action tags were hijacked in March 2026
         # (CVE-2026-33634), so tags alone are not trusted here.
+        # The database was downloaded by the step above, so the scan uses that
+        # copy (TRIVY_SKIP_DB_UPDATE) and never restores an older cached one.
         uses: aquasecurity/trivy-action@ed142fd0673e97e23eac54620cfb913e5ce36c25 # v0.36.0
         with:
           version: v0.76.0
+          skip-setup-trivy: true
+          cache: 'false'
           image-ref: ${{ env.IMAGE }}:${{ env.TAG }}
           severity: CRITICAL,HIGH
           ignore-unfixed: true
           exit-code: '1'
+        env:
+          TRIVY_SKIP_DB_UPDATE: true
 
       - name: Push image to ghcr.io
         env:

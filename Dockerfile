@@ -39,7 +39,17 @@ RUN hugo --minify --baseURL "${HUGO_BASEURL}"
 # --- Stage 2: serve with a normal web server ---
 # nginx stable line, unprivileged build: runs as a non-root user (uid 101)
 # and listens on 8080, since non-root processes can't bind port 80.
-FROM nginxinc/nginx-unprivileged:1.30-alpine
+# The image is published as nginx/nginx-unprivileged. The older
+# nginxinc/nginx-unprivileged name stopped receiving updates at 1.30.6, which
+# left this image on an nginx with known critical issues (release v2.4.1).
+FROM nginx/nginx-unprivileged:1.30-alpine
+# The base image is rebuilt weekly. Pick up any Alpine security fixes published
+# since then, leaving nginx itself to the base image (its packages come from
+# nginx.org, and Alpine's own nginx build must not replace them).
+USER root
+RUN apk upgrade --no-cache $(apk info 2>/dev/null | grep -v '^nginx') \
+ && nginx -v
+USER 101
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 COPY --from=build /src/public /usr/share/nginx/html
 EXPOSE 8080

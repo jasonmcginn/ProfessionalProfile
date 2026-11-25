@@ -37,7 +37,13 @@ Run `hugo server` locally, hard-refresh, and check:
 6. Check the live site, then the release page for `site-<tag>.zip`.
 
 If the image scan finds a fixable HIGH or CRITICAL issue, the release stops
-before anything goes live. Fix the Dockerfile, then re-run the workflow.
+before anything goes live. Fix the Dockerfile, then publish the next patch
+release. Re-running the workflow rebuilds the same tag, so it would not pick
+up a fix committed after it.
+
+The scan needs Trivy's vulnerability database. The workflow downloads it in
+its own step and retries across the two official locations. If that step
+still fails, nothing is wrong with the site: re-run the failed job.
 
 ## Roll back
 
