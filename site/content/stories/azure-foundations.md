@@ -15,7 +15,7 @@ glance:
   - {k: "built", v: "Virtual Networks · Peering · ExpressRoute and VPN · SQL and Data Lake · ARM Templates"}
   - {k: "secured", v: "Separate Tenants · Network Security Groups · Restricted Remote Access · Conditional Access"}
 related:
-  - {kind: "Next story", title: "Turning config tracking into handover documentation", text: "How the build log from these migrations became the client's handover guide.", url: "/stories/config-docs/"}
+  - {kind: "Next story", title: "Turning config tracking into handover documentation", text: "How the configuration database from these migrations became the client's handover guide.", url: "/stories/config-docs/"}
   - {kind: "Same instinct, years earlier", title: "A site-to-site VPN, tested offline before it went live", text: "Prototype first, then go live: the VPN I scripted in an emulator before the real cutover.", url: "/stories/vpn-montreal/"}
   - {kind: "Portfolio", title: "Back to what I take on", text: "Six services, each with its own story like this one.", url: "/#services"}
 ---
@@ -87,8 +87,8 @@ related:
 </div>
 <div>
 <p class="k">Handover</p>
-<h3>Documentation from the build log</h3>
-<p>I was the only technician who automated the handover documentation, using a Word template fed from an Excel build log.</p>
+<h3>Documentation from the database</h3>
+<p>I was the only technician who automated the handover documentation: a SQL dataset from the configuration database, put to XML and loaded into Word through mapped content controls.</p>
 </div>
 </div>
 </section>

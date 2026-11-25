@@ -1,9 +1,13 @@
 {{ define "main" }}
 {{ $slug := .File.ContentBaseName }}
 {{ $members := where site.RegularPages "Params.project" $slug }}
+{{/* quiet: true keeps a project's unfinished pieces off its own page. Its status is still shown in the library. */}}
+{{ $quiet := .Params.quiet }}
+{{ $evidence := .Params.evidence | default slice }}
+{{ if $quiet }}{{ $members = where $members "Params.status" "ne" "planned" }}{{ $evidence = where $evidence "file" "ne" "" }}{{ end }}
 <div class="storyview"><div class="wrap story">
   <a class="backlink mono" href="/projects/">&#8592; projects</a>
-  <p class="story-where mono">// project{{ range .Params.layers }} &middot; {{ $k := . }}{{ $name := $k }}{{ range where site.Data.layers "key" $k }}{{ $name = .name }}{{ end }}<a class="tag" href="/layers/{{ $k | urlize }}/">{{ $name | safeHTML }}</a>{{ end }}{{ if eq .Params.status "planned" }} &middot; <span class="soon-inline">in progress</span>{{ end }}</p>
+  <p class="story-where mono">// project{{ range .Params.layers }} &middot; {{ $k := . }}{{ $name := $k }}{{ range where site.Data.layers "key" $k }}{{ $name = .name }}{{ end }}<a class="tag" href="/layers/{{ $k | urlize }}/">{{ $name | safeHTML }}</a>{{ end }}{{ if and (eq .Params.status "planned") (not $quiet) }} &middot; <span class="soon-inline">in progress</span>{{ end }}</p>
   <h1>{{ .Title }}</h1>
   {{ with .Params.hook }}<p class="hook">{{ . | safeHTML }}</p>{{ end }}
   <div class="story-body">
@@ -11,6 +15,7 @@
     {{ $parts := split .Content "<!--after-pieces-->" }}
     {{ index $parts 0 | safeHTML }}
 
+    {{ if or $members $evidence }}
     <h2>The pieces</h2>
     <p class="proj-note">Each project is laid out in the same order: the problem that started it, the documents that plan it, what was built, and the proof that it works. Open any card to read it.</p>
     {{ $steps := slice
@@ -30,7 +35,7 @@
       </a>
       {{ end }}
     {{ end }}
-    {{ range .Params.evidence }}
+    {{ range $evidence }}
       <div class="proj-card is-planned is-evidence">
         <span class="proj-step mono"><span class="cat-evidence">evidence</span> &middot; 4 &middot; verify</span>
         <span class="proj-card-h">{{ .title }}{{ if not .file }} <span class="soon">not captured yet</span>{{ end }}</span>
@@ -39,6 +44,7 @@
       </div>
     {{ end }}
     </div>
+    {{ end }}
 
     {{ if gt (len $parts) 1 }}{{ index $parts 1 | safeHTML }}{{ end }}
 

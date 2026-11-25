@@ -10,8 +10,9 @@
     {{ range .Pages.ByWeight }}
       {{ $slug := .File.ContentBaseName }}
       {{ $usedby := where $all "Params.builds_on" "intersect" (slice $slug) }}
-      <a class="proj-card{{ if eq .Params.status "planned" }} is-planned{{ end }}" href="{{ .RelPermalink }}">
-        <span class="proj-card-h">{{ .Title }}{{ if eq .Params.status "planned" }} <span class="soon">in progress</span>{{ end }}</span>
+      {{ $flag := and (eq .Params.status "planned") (not .Params.quiet) }}
+      <a class="proj-card{{ if $flag }} is-planned{{ end }}" href="{{ .RelPermalink }}">
+        <span class="proj-card-h">{{ .Title }}{{ if $flag }} <span class="soon">in progress</span>{{ end }}</span>
         {{ with .Params.summary }}<span class="proj-card-b">{{ . }}</span>{{ end }}
         {{ if or .Params.builds_on $usedby .Params.related }}<span class="proj-links mono">
           {{ with .Params.builds_on }}<span>builds on: {{ range $i, $sl := . }}{{ if $i }}, {{ end }}{{ with site.GetPage (printf "/projects/%s" $sl) }}{{ .Title }}{{ else }}{{ $sl }}{{ end }}{{ end }}</span>{{ end }}

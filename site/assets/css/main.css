@@ -662,6 +662,21 @@
   .lab-phase-meta{font-size:.72rem; letter-spacing:.04em; color:var(--ink-soft); white-space:nowrap;}
   .lab-phase-desc{margin:0; padding:12px 16px 14px; color:var(--ink-soft); line-height:1.55;}
   @media (max-width:560px){ a.lab-phase-head{padding:12px;} .lab-phase-desc{padding:10px 12px 12px;} }
+  /* a phase you can open: the whole card is the link, marked with an accent edge and a button */
+  a.lab-phase-link{display:block; text-decoration:none; border-left:4px solid var(--accent); cursor:pointer;
+    transition:border-color .15s, transform .12s, box-shadow .15s;}
+  a.lab-phase-link:hover, a.lab-phase-link:focus-visible{border-color:var(--accent); transform:translateY(-2px);
+    box-shadow:0 12px 24px -16px rgba(0,0,0,.75);}
+  .lab-phase-link .lab-phase-head{display:flex; align-items:baseline; justify-content:space-between; gap:12px; flex-wrap:wrap;
+    background:var(--panel-2); border-bottom:1px solid var(--line); padding:13px 16px;}
+  .lab-phase-link .lab-phase-name{color:var(--accent-ink); font-size:1.08rem;}
+  .lab-phase-link:hover .lab-phase-name{color:var(--accent);}
+  .lab-phase-link .lab-phase-desc{display:block; padding:12px 16px 2px;}
+  .lab-phase-go{display:inline-flex; align-items:center; gap:6px; margin:10px 16px 15px; font-size:.84rem; font-weight:600;
+    color:var(--accent-ink); background:var(--accent-soft); border:1px solid var(--accent); border-radius:6px; padding:8px 14px;
+    transition:background .15s, color .15s;}
+  .lab-phase-link:hover .lab-phase-go, .lab-phase-link:focus-visible .lab-phase-go{background:var(--accent); color:var(--term-bg);}
+  @media (max-width:560px){ .lab-phase-link .lab-phase-head{padding:12px;} .lab-phase-link .lab-phase-desc{padding:10px 12px 2px;} .lab-phase-go{margin:8px 12px 13px;} }
 
   /* ===== v2.4: services home page + rebuilt stories ===== */
   /* hero sub-headline */

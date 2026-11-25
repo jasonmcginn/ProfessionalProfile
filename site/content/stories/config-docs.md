@@ -11,7 +11,7 @@ service: "process, templates and training"
 glance:
   - {k: "where", v: "Thinkmax · Infrastructure Consultant · 2021 to 2023"}
   - {k: "problem", v: "A Long List of Configuration Choices to Track, Test and Hand Off"}
-  - {k: "built", v: "Excel Build Log · Word Template · Generated Handover Guide"}
+  - {k: "built", v: "SQL Database in Azure · SQL to XML · Word Content Controls · Generated Handover Guide"}
   - {k: "result", v: "A Consistent Handover, and a Review Step Before Anything Was Committed"}
 related:
   - {kind: "Related story", title: "Azure foundations for Dynamics 365 migrations", text: "The Azure infrastructure behind Dynamics 365 migrations at Thinkmax, a fresh foundation built per client.", url: "/stories/azure-foundations/"}
@@ -22,7 +22,7 @@ related:
 <p class="sec-label">// 01 the situation</p>
 <h2>Every migration left a trail of settings</h2>
 <p class="lead">Every client migration I worked on at Thinkmax carried a long list of configuration choices to track, confirm, test, and eventually hand off.</p>
-<p>I kept all of it in an Excel file as I went, every setting and change for that client in one place.</p>
+<p>I used a database in Azure to record each client's configuration options as I went, every setting and change for that client in one place. We had development SQL servers available, so I used one.</p>
 </section>
 <section>
 <p class="sec-label">// 02 what I did</p>
@@ -32,7 +32,7 @@ related:
 <div class="part-h">
 <span class="n">1</span><h3>Generate it, don't retype it</h3>
 </div>
-<p>Once a configuration was confirmed, tested, and documented, I used a mail-merge-style setup to turn that tracked data into clean tables and data points automatically.</p>
+<p>Once a configuration was confirmed, tested, and documented, I built SQL to produce a dataset, put it to XML, and loaded that into Word through mapped content controls. That turned the tracked data into clean tables and data points automatically.</p>
 </li>
 <li>
 <div class="part-h">
@@ -45,7 +45,7 @@ related:
 <div class="part-h">
 <span class="n">3</span><h3>The only one automating it</h3>
 </div>
-<p>I was the only technician who automated the handover documentation, using a Word template fed from an Excel build log.</p>
+<p>I was the only technician who automated the handover documentation: a SQL dataset from the configuration database, put to XML and loaded into Word through mapped content controls.</p>
 </li>
 </ol>
 </section>

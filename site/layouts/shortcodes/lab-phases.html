@@ -2,17 +2,21 @@
 <div class="lab-phases">
 {{- range $i, $ph := $phases -}}
   {{- $sec := false -}}{{- with $ph.url -}}{{- $sec = site.GetPage (strings.TrimSuffix "/" .) -}}{{- end -}}
-  <div class="lab-phase">
   {{- if $sec -}}
-    <a class="lab-phase-head" href="{{ $ph.url }}">
+  {{- /* The whole card is the link, with a button at the bottom, so it reads as something to open. */ -}}
+  <a class="lab-phase lab-phase-link" href="{{ $ph.url }}">
+    <span class="lab-phase-head">
       <span class="lab-phase-name">{{ $sec.Title }}</span>
-      <span class="lab-phase-meta mono">{{ with $ph.status }}{{ . }} &middot; {{ end }}view steps &rarr;</span>
-    </a>
-    <p class="lab-phase-desc">{{ $ph.desc }}</p>
+      {{ with $ph.status }}<span class="lab-phase-meta mono">{{ . }}</span>{{ end }}
+    </span>
+    <span class="lab-phase-desc">{{ $ph.desc }}</span>
+    <span class="lab-phase-go mono">open {{ $ph.name }} &rarr;</span>
+  </a>
   {{- else -}}
+  <div class="lab-phase">
     <div class="lab-phase-head is-planned"><span class="lab-phase-name">{{ $ph.name }}</span><span class="lab-phase-meta mono">{{ $ph.status }}</span></div>
     <p class="lab-phase-desc">{{ $ph.desc }}</p>
-  {{- end -}}
   </div>
+  {{- end -}}
 {{- end -}}
 </div>
