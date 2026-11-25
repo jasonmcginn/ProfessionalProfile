@@ -10,7 +10,6 @@ description: "Jason R. McGinn away from the keyboard, and what NetState Data is.
     <p>I'm a maker at heart. I like building things that have a real use and purpose, with a design that is both elegant and functional. When I'm away from the keyboard I'm usually in the woods, or out in the shop making something with my hands.</p>
     <p>A lot of that happens at the CNC, where I enjoy the design side as much as the carving. I designed my own cribbage board and have sold dozens of them. I also turn and carve bowls, pens, and plenty of other woodworking projects, tons of them over the years. And I love dogs.</p>
     <p class="q">It's the same instinct that shapes how I build systems. I want what I make to last, and to actually get used. It's not a success until the end user is happy.</p>
-    <p style="margin-top:18px;"><a class="btn" href="/woodwork/">see some of my work</a></p>
   </div>
   <section id="netstate" class="beyond about">
     <p class="sec-label">// about NetState Data</p>

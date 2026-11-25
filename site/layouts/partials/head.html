@@ -1,10 +1,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>{{ if .IsHome }}{{ .Site.Title }} · {{ .Site.Params.owner }}{{ else }}{{ .Title }} · {{ .Site.Title }}{{ end }}</title>
+<title>{{ if .IsHome }}{{ .Site.Params.owner }} · {{ .Site.Params.role }}{{ else }}{{ .Title }} · {{ .Site.Title }}{{ end }}</title>
 <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}">
 
 {{/* social share preview (Open Graph + Twitter Card) */}}
-{{ $sTitle := cond .IsHome (printf "%s · %s" .Site.Title .Site.Params.owner) (printf "%s · %s" .Title .Site.Title) }}
+{{ $sTitle := cond .IsHome (printf "%s · %s" .Site.Params.owner .Site.Params.role) (printf "%s · %s" .Title .Site.Title) }}
 {{ $sDesc := .Description }}
 {{ if not $sDesc }}{{ with .Params.summary }}{{ $sDesc = . }}{{ end }}{{ end }}
 {{ if not $sDesc }}{{ $sDesc = .Site.Params.description }}{{ end }}

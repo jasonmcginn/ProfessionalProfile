@@ -1,4 +1,5 @@
 ---
+draft: true
 title: "agent-workflow: roles, approvals and orchestration"
 summary: "What each agent is allowed to see and do, how work passes between them, how approval works for any change, how every step is logged, and what the agents must never touch."
 hook: ""

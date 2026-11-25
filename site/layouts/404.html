@@ -1,0 +1,24 @@
+{{ define "main" }}
+<div class="storyview"><div class="wrap story">
+  <p class="story-where mono">// 404 &middot; not found</p>
+  <h1>That page isn't here.</h1>
+  <p class="hook">The link may be old, or the address may have a typo.</p>
+  <div class="term">
+    <div class="term-bar">
+      <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
+      <span class="term-title mono">// not found</span>
+    </div>
+    <div class="term-body mono bizbody">
+      <div class="bizline"><span class="p">~/prod/portfolio$</span> cat ./that-page</div>
+      <div class="bizline"><span class="t-err">cat: ./that-page: No such file or directory</span></div>
+      <div class="bizline"><span class="p">~/prod/portfolio$</span> <span class="caret" aria-hidden="true"></span></div>
+    </div>
+  </div>
+  <div class="nf-links">
+    <a class="btn primary" href="/">home</a>
+    <a class="btn" href="/#services">what I take on</a>
+    <a class="btn" href="/projects/">projects</a>
+    <a class="btn" href="/library/">library</a>
+  </div>
+</div></div>
+{{ end }}

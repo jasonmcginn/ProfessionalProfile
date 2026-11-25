@@ -767,6 +767,8 @@
   .flow .flow-in{display:flex; flex-wrap:wrap; align-items:center; gap:8px 10px;}
   .cards2{display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:14px; margin:16px 0 10px;}
   .cards2.c3{grid-template-columns:repeat(3,1fr);}
+  .story-body:not(.sv2) .cards2 p{margin:0 0 10px; font-size:1rem; line-height:1.6; color:var(--ink-soft);}
+  .story-body:not(.sv2) .cards2 p.k{font-family:'IBM Plex Mono',monospace; color:var(--amber); font-size:.72rem; letter-spacing:.08em; text-transform:uppercase; margin:0 0 6px;}
   @media (max-width:860px){ .cards2.c3{grid-template-columns:repeat(auto-fit,minmax(230px,1fr));} }
   .xwin-body .cards2.c3{grid-template-columns:repeat(2,1fr);}
   .cards2 > div{background:var(--panel); border:1px solid var(--line); border-radius:12px; padding:18px 20px 8px;}
@@ -781,3 +783,20 @@
   .related + .digdeeper{margin-top:22px;}
   /* inside a taskbar window the column is narrow: stack the cards */
   .xwin-body .feat{grid-template-columns:1fr;}
+
+  /* ===== phones: headline first, then where to go, then the terminal ===== */
+  .index-4 .idx-d{display:block; overflow:visible; -webkit-line-clamp:unset;}
+  @media (max-width:640px){
+    .hero-headline{order:1;}
+    .hero-sub{order:2;}
+    .hero .index-grid{order:3;}
+    .hero .term{order:4;}
+    /* floating resume and email: icons only, stacked in the corner, so they stop covering the text */
+    .floater{right:8px; bottom:46px; top:auto; flex-direction:column; align-items:flex-end; gap:8px;}
+    .float-btn{padding:6px; gap:0; border-radius:50%;}
+    .float-btn .float-label{display:none;}
+    .float-btn svg{width:30px; height:30px;}
+  }
+
+  /* 404 page */
+  .nf-links{display:flex; flex-wrap:wrap; gap:10px; margin:20px 0 6px;}

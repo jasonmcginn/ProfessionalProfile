@@ -1,4 +1,5 @@
 ---
+draft: true
 title: "agent-workflow"
 summary: "A junior admin team of local AI agents, each with one job, that finds problems, explains them and routes them to the right person. The agents change nothing; a person decides every action."
 hook: "One agent that watches is a start. This project gives the lab a team: agents that alert, troubleshoot, communicate and write code, working together in one orchestrated workflow, with a person approving anything that changes the system."

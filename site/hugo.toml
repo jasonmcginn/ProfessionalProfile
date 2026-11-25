@@ -6,7 +6,8 @@ enableRobotsTXT = true
 [params]
   owner = "Jason R. McGinn"
   tagline = "From the cable to the cloud, and every layer between."
-  description = "The professional profile of Jason R. McGinn: networking, systems, cloud, and automation, shown layer by layer."
+  role = "IT Infrastructure, Cloud and Projects"
+  description = "Jason R. McGinn: IT infrastructure, cloud and projects. What I take on, how I run a project from discovery to handover, and the work that shows it."
 
 [markup.goldmark.renderer]
   unsafe = true

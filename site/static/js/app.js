@@ -77,7 +77,7 @@
     {t:'kv', k:'plans     ', x:'Discovery · Solution Design · Scopes and Estimates'},
     {t:'kv', k:'delivers  ', x:'Infrastructure Management and Services · Migrations · Tools and Automation · Documentation and Training'},
     {t:'kv', k:'works in  ', x:'Microsoft Server and Cloud · Linux · Virtualization · Networks · SQL and Data · Scripting'},
-    {t:'kv', k:'secures   ', x:'Identity and Access · Firewalls · Encryption · Monitoring and Alerting · Auditing'},
+    {t:'kv', k:'secures   ', x:'Identity and Access · Firewalls · Encryption · Monitoring and Alerting · Auditing · Awareness Training'},
     {t:'kv', k:'speaks    ', x:'English · French'},
     {t:'gap'},
     {t:'status', x:'available for work'},
@@ -100,7 +100,7 @@
     return '\n';
   }
   if(reduced){ body.innerHTML=lines.map(lineHTML).join('')+'<span class="caret"></span>'; return; }
-  var i=0, out='', finished=false, warned=false;
+  var i=0, out='', finished=false;
   function render(){ body.innerHTML=out+'<span class="caret"></span>'; }
   function delay(t){
     if(t==='art') return 480;
@@ -118,27 +118,39 @@
     })();
   }
   function step(){
-    if(i>=lines.length){ finished=true; render(); return; }
+    if(i>=lines.length){ finished=true; render(); body.style.minHeight=''; return; }
     var l=lines[i];
     if(l.t==='cmd'){ typeCmd(l); return; }
     if(l.t==='gap'){ out+='\n'; i++; render(); setTimeout(step,240); return; }
     out+=lineHTML(l); i++; render();
     setTimeout(step, delay(l.t));
   }
-  var rT;
-  window.addEventListener('resize', function(){
+  // Reserve the terminal's final height while it types, so the page below does not jump.
+  // Measured on a hidden copy at the terminal's real width, and measured again whenever
+  // that width changes (window resized, phone rotated, a pane still opening at load).
+  function measure(){
+    if(finished){ body.style.minHeight=''; return; }
+    var w=body.offsetWidth;
+    if(w<160){ body.style.minHeight=''; return; }   // not laid out yet: reserve nothing
+    var ghost=body.cloneNode(false);
+    ghost.removeAttribute('id');
+    ghost.style.cssText='position:absolute;left:-9999px;top:0;visibility:hidden;pointer-events:none;min-height:0;width:'+w+'px';
+    ghost.innerHTML=lines.map(lineHTML).join('')+'<span class="caret"></span>';
+    body.parentNode.appendChild(ghost);
+    var h=ghost.offsetHeight;
+    body.parentNode.removeChild(ghost);
+    body.style.minHeight=h+'px';
+  }
+  var rT, lastW=0;
+  function remeasure(){
     clearTimeout(rT);
-    rT=setTimeout(function(){
-      if(!finished || warned) return;
-      warned=true;
-      body.style.minHeight='';
-      body.innerHTML=out+'\n<span class="t-err">[!] display resized - refresh the page to redraw properly</span>\n<span class="p">'+P+'</span> <span class="caret"></span>';
-    },300);
-  });
+    rT=setTimeout(function(){ var w=body.offsetWidth; if(w!==lastW){ lastW=w; measure(); } },150);
+  }
+  window.addEventListener('resize', remeasure);
+  if(window.ResizeObserver){ try{ new ResizeObserver(remeasure).observe(body.parentNode); }catch(_){} }
   function measureStart(){
-    body.innerHTML=lines.map(lineHTML).join('')+'<span class="caret"></span>';
-    body.style.minHeight=body.offsetHeight+'px';
-    body.innerHTML='';
+    lastW=body.offsetWidth;
+    measure();
     setTimeout(step,450);
   }
   if(document.fonts&&document.fonts.ready){ document.fonts.ready.then(measureStart); } else { measureStart(); }
